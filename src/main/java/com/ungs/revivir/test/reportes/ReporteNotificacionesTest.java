@@ -1,0 +1,31 @@
+package com.ungs.revivir.test.reportes;
+
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.List;
+
+import com.ungs.revivir.negocios.manager.ClienteNotificacionManager;
+import com.ungs.revivir.persistencia.definidos.SubSector;
+import com.ungs.revivir.persistencia.entidades.vista.VClienteNotificacion;
+import com.ungs.revivir.vista.reportes.ReporteNotificaciones;
+
+public class ReporteNotificacionesTest {
+
+	public static void main(String[] args) {
+		
+		// Ejemplo para crear una fecha en SQL Date
+		// Date fecha = Date.valueOf(LocalDate.of(1991, 11, 12));
+	
+		// Parametros
+		SubSector subSector = SubSector.SECCION_A;
+		Date fechaDesde = Date.valueOf(LocalDate.of(2020, 6, 11));
+		Date fechaHasta = Date.valueOf(LocalDate.of(2021, 7, 11));
+		
+		List<VClienteNotificacion> notifClientes = ClienteNotificacionManager.buscarVencimientosSinLimite(subSector, fechaDesde, fechaHasta);
+		System.out.println("Iniciando prueba...OK");
+		System.out.println("Parametros: " + subSector + " " + fechaDesde + " " + fechaHasta);
+
+		new ReporteNotificaciones(notifClientes);
+	}
+
+}
