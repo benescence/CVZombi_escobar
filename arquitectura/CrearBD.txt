@@ -1,4 +1,4 @@
--- NUEVA BASE DE DATOS.
+-- NUEVA BASE DE DATOS
 DROP DATABASE IF EXISTS revivir_escobar;
 CREATE DATABASE revivir_escobar;
 USE revivir_escobar;
