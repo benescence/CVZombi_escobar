@@ -4,6 +4,7 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import com.ungs.revivir.vista.sesion.iniciar.ControladorIniciarSesion;
 
+// Clase principal
 public class Main {
 
 	public static void configurarApariencia() {
