@@ -11,6 +11,8 @@ public class Validador {
 	}
 
 	public static boolean DNI(String DNI) {
+		if (DNI == null || DNI.equals("") )
+			return true;
 		return formatoNumero(DNI);
 	}
 	

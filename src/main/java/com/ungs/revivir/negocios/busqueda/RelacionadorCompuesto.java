@@ -5,12 +5,14 @@ import java.util.List;
 
 import com.ungs.revivir.negocios.manager.ClienteManager;
 import com.ungs.revivir.negocios.manager.FallecidoManager;
+import com.ungs.revivir.negocios.manager.FallecidoUbicacionManager;
 import com.ungs.revivir.persistencia.entidades.Cargo;
 import com.ungs.revivir.persistencia.entidades.Cliente;
 import com.ungs.revivir.persistencia.entidades.Fallecido;
 import com.ungs.revivir.persistencia.entidades.Pago;
 import com.ungs.revivir.persistencia.entidades.Responsable;
 import com.ungs.revivir.persistencia.entidades.Ubicacion;
+import com.ungs.revivir.persistencia.entidades.vista.VFallecidoUbicacion;
 
 public class RelacionadorCompuesto {
 
@@ -64,6 +66,14 @@ public class RelacionadorCompuesto {
 		List<Fallecido> ret = new ArrayList<>();
 		for (Responsable elemento : lista)
 			ret.add(FallecidoManager.traerPorID(elemento.getFallecido()));
+		
+		return ret;
+	}
+	protected static List<VFallecidoUbicacion> traerVFallecidoUbicacion(Cliente cliente) {
+		List<Responsable> lista = Relacionador.traerResponsables(cliente);
+		List<VFallecidoUbicacion> ret = new ArrayList<>();
+		for (Responsable elemento : lista)
+			ret.add(FallecidoUbicacionManager.traerPorID(elemento.getFallecido()));
 		
 		return ret;
 	}

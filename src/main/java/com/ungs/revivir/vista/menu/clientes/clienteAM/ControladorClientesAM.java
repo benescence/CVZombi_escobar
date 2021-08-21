@@ -61,6 +61,7 @@ public class ControladorClientesAM implements ControladorExterno{
 			invocador.mostrar();
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			Popup.mostrar(e.getMessage());
 		}
 		

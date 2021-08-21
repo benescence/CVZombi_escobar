@@ -11,6 +11,7 @@ import com.ungs.revivir.persistencia.entidades.Pago;
 import com.ungs.revivir.persistencia.entidades.Responsable;
 import com.ungs.revivir.persistencia.entidades.Servicio;
 import com.ungs.revivir.persistencia.entidades.Ubicacion;
+import com.ungs.revivir.persistencia.entidades.vista.VFallecidoUbicacion;
 import com.ungs.revivir.persistencia.interfaces.CargoOBD;
 import com.ungs.revivir.persistencia.interfaces.FallecidoOBD;
 import com.ungs.revivir.persistencia.interfaces.MovimientoOBD;
@@ -69,8 +70,8 @@ public class Relacionador {
 		return RelacionadorCompuesto.traerClientes(fallecido);
 	}
 
-	public static List<Fallecido> traerFallecidos(Cliente cliente) {
-		return RelacionadorCompuesto.traerFallecidos(cliente);
+	public static List<VFallecidoUbicacion> traerFallecidosUbicacion(Cliente cliente) {
+		return RelacionadorCompuesto.traerVFallecidoUbicacion(cliente);
 	}
 
 	public static List<Cliente> traerClientes(Ubicacion ubicacion) {

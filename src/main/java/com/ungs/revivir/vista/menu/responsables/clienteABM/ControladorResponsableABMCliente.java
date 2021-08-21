@@ -133,15 +133,15 @@ public class ControladorResponsableABMCliente implements ResponsableInvocable, C
 	
 	@Override
 	public void actualizarResponsables() {
-		List<Fallecido> fallecidos = new ArrayList<>();
+		List<VFallecidoUbicacion> fallecidos = new ArrayList<>();
 		
 		if (cliente != null)
-			fallecidos = Relacionador.traerFallecidos(cliente);
+			fallecidos = Relacionador.traerFallecidosUbicacion(cliente);
 		
 		if (fallecidos.size() == 0)
 			Popup.mostrar("No se han encopntrados registros con los parametros ingresados.");
 		
-		//ventana.getTabla().recargar(fallecidos);
+		ventana.getTabla().recargar(fallecidos);
 	}
 
 }

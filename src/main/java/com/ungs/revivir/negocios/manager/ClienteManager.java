@@ -49,6 +49,8 @@ public class ClienteManager {
 	}
 	
 	public static Cliente traerPorDNI(String DNI) {
+		if (DNI == null || DNI.equals(""))
+			return null;
 		ClienteOBD obd = FactoryOBD.crearClienteOBD();		
 		return obd.selectByDNI(DNI);
 	}

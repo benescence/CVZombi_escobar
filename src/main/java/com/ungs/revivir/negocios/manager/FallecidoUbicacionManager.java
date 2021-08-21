@@ -90,5 +90,10 @@ public class FallecidoUbicacionManager {
 		FallecidoUbicacionVOBD obd = FactoryOBD.crearFallecidoUbicacionOBD();
 		return obd.selectBySubsectorEntreFechasSinLimite(subSector, desde, hasta);
 	}
+
+	public static VFallecidoUbicacion traerPorID(Integer fallecido) {
+		FallecidoUbicacionVOBD obd = FactoryOBD.crearFallecidoUbicacionOBD();
+		return obd.selectByID(fallecido);
+	}
 	
 }

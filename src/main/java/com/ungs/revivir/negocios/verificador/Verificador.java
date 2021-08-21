@@ -70,9 +70,9 @@ public class Verificador {
 		else if (!Validador.apellido(apellido))
 			mensaje += "\n    -El APELLIDO solo puede estar compuesto de letras y espacios.";
 		
-		if (DNI == null)
-			mensaje += "\n    -El DNI no puede estar vacío.";
-		else if (!Validador.DNI(DNI))
+		//if (DNI == null)
+			//mensaje += "\n    -El DNI no puede estar vacío.";
+		if (!Validador.DNI(DNI))
 			mensaje += "\n    -El DNI solo puede estar compuesto de números.";
 		else {
 			Cliente clienteDNI = ClienteManager.traerPorDNI(DNI);
