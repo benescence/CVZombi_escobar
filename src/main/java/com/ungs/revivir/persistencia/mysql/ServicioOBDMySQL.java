@@ -67,15 +67,19 @@ public class ServicioOBDMySQL extends OBD implements ServicioOBD{
 	@Override
 	public List<Servicio> selectByCodigoNombre(String codigo, String nombre) {
 		String condicion = "";
+		
 		if (nombre != null)
 			condicion += "upper(nombre) like '"+nombre.toUpperCase()+"%'";
-		
+			
 		if (codigo != null) {
 			if (!condicion.equals(""))
 				condicion += " and "; 
+			
 			condicion += "upper(codigo) like '"+codigo.toUpperCase()+"%'";
 		}
-				
+		if (!condicion.equals(""))
+			condicion += " and "; 
+		condicion += " historico = false";
 		return selectByCondicion(condicion);
 	}
 	

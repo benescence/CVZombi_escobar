@@ -51,8 +51,8 @@ public class PanelServicios extends PanelVertical implements ServicioSeleccionab
 		List<Servicio> servicios = null;
 		
 		try {
+			//servicios = ServicioManager.traer(nombre, codigo);
 			servicios = ServicioManager.traer(nombre, codigo);
-			
 			if (servicios.size() == 0) {
 				Popup.mostrar("No existe ningun servicio con los parametros ingresados.");
 				
