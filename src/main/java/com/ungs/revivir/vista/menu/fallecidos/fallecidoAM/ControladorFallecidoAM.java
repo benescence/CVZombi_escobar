@@ -2,11 +2,13 @@ package com.ungs.revivir.vista.menu.fallecidos.fallecidoAM;
 
 import java.sql.Date;
 
+import com.ungs.revivir.negocios.Localizador;
 import com.ungs.revivir.negocios.Validador;
 import com.ungs.revivir.negocios.manager.FallecidoManager;
 import com.ungs.revivir.negocios.manager.FallecidoUbicacionManager;
 import com.ungs.revivir.negocios.manager.UbicacionManager;
 import com.ungs.revivir.negocios.verificador.Verificador;
+import com.ungs.revivir.persistencia.definidos.Sector;
 import com.ungs.revivir.persistencia.definidos.SubSector;
 import com.ungs.revivir.persistencia.definidos.TipoFallecimiento;
 import com.ungs.revivir.persistencia.entidades.Fallecido;
@@ -89,7 +91,8 @@ public class ControladorFallecidoAM implements ControladorExterno {
 	}
 	
 	private Ubicacion traerUbicacionVerificada() throws Exception {
-		SubSector subsector = (SubSector) ventana.getSector().getSelectedItem();
+		Sector sector = (Sector) ventana.getSector().getSelectedItem();
+		SubSector subsector = Localizador.mapearSector(sector);
 		String otroCementerio = ventana.getCementerio().getValor();
 		Integer nicho = (ventana.getNicho().isEnabled() ? ventana.getNicho().getValor() : null);
 		Integer fila = (ventana.getFila().isEnabled() ? ventana.getFila().getValor() : null);
@@ -108,12 +111,12 @@ public class ControladorFallecidoAM implements ControladorExterno {
 		Integer sepultura = (ventana.getSepultura().isEnabled() ? ventana.getSepultura().getValor() : null);
 		Integer parcela = (ventana.getParcela().isEnabled() ? ventana.getParcela().getValor() : null);
 		Integer mueble = (ventana.getMueble().isEnabled() ? ventana.getMueble().getValor() : null);
-		Integer inhumacion = (ventana.getInBoveda().isEnabled() ? ventana.getInBoveda().getValor() : null);
-		Integer circ = (ventana.getPozo().isEnabled() ? ventana.getPozo().getValor(): null);
+		Integer boveda = (ventana.getInBoveda().isEnabled() ? ventana.getInBoveda().getValor() : null);
+		Integer pozo = (ventana.getPozo().isEnabled() ? ventana.getPozo().getValor(): null);
 		Date vencimiento = ventana.getVencimiento().getValor();
 
 		Ubicacion ubicacion = new Ubicacion(-1, subsector, otroCementerio, nicho, fila, seccion,
-				macizo, unidad, bis, bis_macizo, sepultura, parcela, mueble, inhumacion, circ, vencimiento);
+				macizo, unidad, bis, bis_macizo, sepultura, parcela, mueble, pozo,boveda, vencimiento);
 		
 		return Verificador.ubicacion(ubicacion);		
 	}	

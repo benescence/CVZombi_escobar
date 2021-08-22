@@ -22,6 +22,7 @@ import com.ungs.revivir.vista.menu.clientes.clienteAM.ControladorClientesAM;
 import com.ungs.revivir.vista.menu.fallecidos.ControladorFallecidosABM;
 import com.ungs.revivir.vista.menu.fallecidos.fallecidoAM.ControladorFallecidoAM;
 import com.ungs.revivir.vista.menu.fallecidos.fallecidoAM.FallecidoInvocable;
+import com.ungs.revivir.vista.menu.fallecidos.ubicacion.ControladorFallecidoPorUbicacion;
 import com.ungs.revivir.vista.menu.movimientos.ControladorMovimientoABM;
 import com.ungs.revivir.vista.menu.movimientos.movimientoAM.ControladorMovimientoAM;
 import com.ungs.revivir.vista.menu.movimientos.movimientoAM.MovimientoInvocable;
@@ -78,6 +79,7 @@ public class ControladorPrincipal implements ClienteInvocable, ServicioInvocable
 		ventana.getCargoConsultar().addActionListener(e -> colocarVentanaInterna(new ControladorCargoABM(this)));
 		ventana.getClienteConsulta().addActionListener(e -> colocarVentanaInterna(new ControladorClientesABM(this)));
 		ventana.getFallecidoConsulta().addActionListener(e -> colocarVentanaInterna(new ControladorFallecidosABM(this)));
+		ventana.getFallecidoUbicacion().addActionListener(e -> colocarVentanaInterna(new ControladorFallecidoPorUbicacion(this)));
 		ventana.getMovimientoConsultar().addActionListener(e -> colocarVentanaInterna(new ControladorMovimientoABM(this)));
 		ventana.getPagoConsultar().addActionListener(e -> colocarVentanaInterna(new ControladorPagoABM(this)));
 		ventana.getResponsablePorCliente().addActionListener(e -> colocarVentanaInterna(new ControladorResponsableABMCliente(this)));

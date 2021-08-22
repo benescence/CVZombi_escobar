@@ -44,8 +44,8 @@ public class FallecidoUbicacionManager {
 				fallecidoUbicacion.getNicho(), fallecidoUbicacion.getFila(),fallecidoUbicacion.getSeccion(),
 				fallecidoUbicacion.getMacizo(), fallecidoUbicacion.getUnidad(), fallecidoUbicacion.getBis() ,
 				fallecidoUbicacion.getBisMacizo(), fallecidoUbicacion.getSepultura(),
-				fallecidoUbicacion.getParcela(), fallecidoUbicacion.getMueble(), fallecidoUbicacion.getBoveda(), 
-				fallecidoUbicacion.getPozo(), fallecidoUbicacion.getVencimiento()
+				fallecidoUbicacion.getParcela(), fallecidoUbicacion.getMueble(), fallecidoUbicacion.getPozo(), fallecidoUbicacion.getBoveda() 
+				, fallecidoUbicacion.getVencimiento()
 			);
 	}
 
@@ -94,6 +94,20 @@ public class FallecidoUbicacionManager {
 	public static VFallecidoUbicacion traerPorID(Integer fallecido) {
 		FallecidoUbicacionVOBD obd = FactoryOBD.crearFallecidoUbicacionOBD();
 		return obd.selectByID(fallecido);
+	}
+
+	public static List<VFallecidoUbicacion> traer(Integer pozoMin, Integer pozoMax, Integer macizoMin,
+			Integer macizoMax, Integer parcelaMin, Integer parcelaMax, Integer filaMin, Integer filaMax,
+			Integer unidadMin, Integer unidadMax, Integer nichoMin, Integer nichoMax, Integer muebleMin,
+			Integer muebleMax, Integer sepulturaMin, Integer sepulturaMax, Integer bovedaMin, Integer bovedaMax,
+			SubSector subSector, String seccion, Boolean mostrar, Boolean macizo_bis, Boolean bis) {
+		FallecidoUbicacionVOBD obd = FactoryOBD.crearFallecidoUbicacionOBD();
+		return obd.selectByUbicacion( pozoMin,  pozoMax,  macizoMin,
+				 macizoMax,  parcelaMin,  parcelaMax,  filaMin,  filaMax,
+				 unidadMin,  unidadMax,  nichoMin,  nichoMax,  muebleMin,
+				 muebleMax,  sepulturaMin,  sepulturaMax,  bovedaMin,  bovedaMax,
+				 subSector,  seccion,  mostrar,  macizo_bis,  bis);
+		
 	}
 	
 }

@@ -157,10 +157,10 @@ public class ControladorMovimientoAM implements FallecidoSeleccionable, Controla
 		
 		// La seccion es siempre mayuscula y solo puede ser una letra
 		String seccion = (ventana.getSeccion().isEnabled() ? ventana.getSeccion().getTextField().getText() : null);
-		if (seccion != null && seccion.length() == 1)
-			seccion = seccion.toUpperCase().charAt(0) + "";
+		if (seccion != null )
+			seccion = seccion.toUpperCase() + "";
 		else 
-			throw new Exception("La seccion debe ser una letra: ["+seccion+"]");
+			throw new Exception("La seccion no puede estar vacía ");
 
 		Ubicacion ubicacion = new Ubicacion(-1, subsector, cementerio, nicho, fila, seccion,
 				macizo, unidad, bis, bis_macizo, sepultura, parcela, mueble, inhumacion, circ, vencimiento);

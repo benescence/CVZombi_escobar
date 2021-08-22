@@ -22,7 +22,7 @@ public class VentanaPrincipal extends Ventana {
 	private static final long serialVersionUID = 1L;
 	private JMenuItem principalAlta,exportarBD,actualizarBD, principalCambiarPassword, principalCerrarSesion;
 	private JMenuItem clienteAlta, clienteConsulta; 
-	private JMenuItem fallecidoAlta, fallecidoConsulta;
+	private JMenuItem fallecidoAlta, fallecidoConsulta, fallecidoUbicacion;
 	private JMenuItem cargoAlta, cargoConsultar; 
 	private JMenuItem pagoAlta, pagoConsultar; 
 	private JMenuItem movimientoAlta, movimientoConsultar; 
@@ -47,6 +47,14 @@ public class VentanaPrincipal extends Ventana {
 		setContentPane(lblLogo);
 	}
 	
+	public JMenuItem getFallecidoUbicacion() {
+		return fallecidoUbicacion;
+	}
+
+	public void setFallecidoUbicacion(JMenuItem fallecidoUbicacion) {
+		this.fallecidoUbicacion = fallecidoUbicacion;
+	}
+
 	private JMenuBar crearBarra() {
 		JMenuBar barra = new JMenuBar();
 		barra.addMouseListener(new MouseAdapter() {
@@ -82,6 +90,7 @@ public class VentanaPrincipal extends Ventana {
 		menuFallecido.setMnemonic('f');
 		menuFallecido.add(fallecidoAlta = new JMenuItem("Alta fallecido", 'a'));
 		menuFallecido.add(fallecidoConsulta = new JMenuItem("Consultar fallecidos", 'c'));
+		menuFallecido.add(fallecidoUbicacion = new JMenuItem("Consulta por ubicacion", 'u'));
 		fallecidoAlta.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, Event.CTRL_MASK | Event.ALT_MASK));
 		barra.add(menuFallecido);
 
