@@ -79,7 +79,7 @@ public class Formato {
 	}
 	
 	public static String ubicacion(Ubicacion ubicacion) {
-		String ret = "Sector "+ Localizador.mapearSector(ubicacion.getSubsector()) +" - Seccion "+ubicacion.getSeccion();
+		String ret = "Sector "+ Localizador.mapearSector2(ubicacion.getSubsector()) +" - Seccion "+ubicacion.getSeccion();
 		ret += (ubicacion.getBoveda() != null) ? ", Bóveda " + ubicacion.getBoveda() : ""; 
 		ret += (ubicacion.getNicho() != null) ? ", nicho " + ubicacion.getNicho() : ""; 
 		ret += (ubicacion.getFila() != null) ? ", fila " + ubicacion.getFila() : ""; 

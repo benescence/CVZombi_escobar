@@ -13,7 +13,7 @@ CREATE VIEW rev_v_ubicaciones_libres AS
 	SELECT 
 		UT.ID,
 		UT.subsector,
-		UT.circ,
+		UT.pozo,
 		UT.seccion,
 		UT.macizo,
 		UT.parcela,

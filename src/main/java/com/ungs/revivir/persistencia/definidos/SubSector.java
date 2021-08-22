@@ -19,6 +19,7 @@ public enum SubSector {
 	OTRO_CEMENTERIO,
 	SECCION_A,
 	SECCION_B,
-	SECCION_C
+	SECCION_C,
+	SEPULTURAS
 
 }

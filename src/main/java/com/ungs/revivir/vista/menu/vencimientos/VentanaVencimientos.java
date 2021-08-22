@@ -65,20 +65,20 @@ public class VentanaVencimientos extends VentanaInterna {
 		Dimension dimEntrada = new Dimension(300, 25);
 
 		inSector = new EntradaLista<>("Sector", dimTexto, dimEntrada);
-		inSubsector = new EntradaLista<>("Sub Sector", dimTexto, dimEntrada);
+		//inSubsector = new EntradaLista<>("Sub Sector", dimTexto, dimEntrada);
 
 		for (Sector sector : Localizador.traerSectores())
 			inSector.getComboBox().addItem(sector);
 		
 		// EL SUB SECTOR DEPENDE DEL SECTOR ESCOGIDO
-		inSector.getComboBox().addActionListener(new ActionListener() {
+		/*inSector.getComboBox().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				recargarSubSectores();
 			}
-		});
+		});*/
 
 		inSector.getComboBox().setSelectedIndex(0);
-		inSubsector.getComboBox().setSelectedIndex(0);
+		//inSubsector.getComboBox().setSelectedIndex(0);
 
 		inDesde = new EntradaFecha(Almanaque.hoy(), "Desde", dimTexto, dimEntrada);
 		inHasta = new EntradaFecha(Almanaque.hoy(), "Hasta", dimTexto, dimEntrada);
@@ -86,7 +86,7 @@ public class VentanaVencimientos extends VentanaInterna {
 		PanelVertical panelSector = new PanelVertical();
 		panelSector.setBorder(new EmptyBorder(0, 0, 0, 10));
 		panelSector.add(inSector);
-		panelSector.add(inSubsector);
+		//panelSector.add(inSubsector);
 		
 		PanelVertical panelFecha = new PanelVertical();
 		panelFecha.setBorder(new EmptyBorder(0, 10, 0, 0));

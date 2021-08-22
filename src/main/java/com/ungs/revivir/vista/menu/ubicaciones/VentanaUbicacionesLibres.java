@@ -66,22 +66,22 @@ public class VentanaUbicacionesLibres extends VentanaInterna{
 		
 		// Inicializo las listas de sectores
 		inSector = new EntradaLista<>("Sector", dimTexto, dimEntrada);
-		inSubsector = new EntradaLista<>("Sub Sector", dimTexto, dimEntrada);
+		//inSubsector = new EntradaLista<>("Sub Sector", dimTexto, dimEntrada);
 		
 		for (Sector sector : Localizador.traerSectores())
 			inSector.getComboBox().addItem(sector);
 		
-		inSector.getComboBox().addActionListener(new ActionListener() {
+		/*inSector.getComboBox().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				inSubsector.getComboBox().removeAllItems();
 				Sector sector = (Sector) inSector.getComboBox().getSelectedItem();
 				for (SubSector elemento : Localizador.traerSubSectores(sector))
 					inSubsector.getComboBox().addItem(elemento);
 			}
-		});
+		});*/
 
 		inSector.getComboBox().setSelectedIndex(0);
-		inSubsector.getComboBox().setSelectedIndex(0);
+		//inSubsector.getComboBox().setSelectedIndex(0);
 
 		// Inicializo el esto de las entradas
 		inCirc = new EntradaNumeroEntre("Circ", dimTexto, dimEntradaDoble);
@@ -101,7 +101,7 @@ public class VentanaUbicacionesLibres extends VentanaInterna{
 		PanelVertical ret1 = new PanelVertical();
 		ret1.setBorder(new EmptyBorder(0, 0, 0, 10));
 		ret1.add(inSector);
-		ret1.add(inSubsector);
+		//ret1.add(inSubsector);
 		ret1.add(inCirc);
 		ret1.add(inMacizo);
 		ret1.add(inParcela);

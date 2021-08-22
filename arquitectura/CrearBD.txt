@@ -247,7 +247,7 @@ CREATE VIEW rev_v_ubicaciones_libres AS
 	SELECT 
 		UT.ID,
 		UT.subsector,
-		UT.circ,
+		UT.pozo,
 		UT.seccion,
 		UT.macizo,
 		UT.parcela,
@@ -256,7 +256,7 @@ CREATE VIEW rev_v_ubicaciones_libres AS
 		UT.nicho,
 		UT.mueble,
 		UT.sepultura,
-		UT.inhumacion,
+		UT.boveda,
 		UT.bis_macizo,
 		UT.bis
 	FROM rev_ubicaciones_totales UT
@@ -264,6 +264,8 @@ CREATE VIEW rev_v_ubicaciones_libres AS
 			AND IFNULL(UT.subsector, -1) = IFNULL(U.subsector, -1)
 			AND IFNULL(UT.seccion, -1) = IFNULL(U.seccion, -1)
 			AND IFNULL(UT.macizo, -1) = IFNULL(U.macizo, -1)
+			AND IFNULL(UT.pozo, -1) = IFNULL(U.pozo, -1)
+			AND IFNULL(UT.boveda, -1) = IFNULL(U.boveda, -1)
 			AND IFNULL(UT.parcela, -1) = IFNULL(U.parcela, -1)
 			AND IFNULL(UT.unidad, -1) = IFNULL(U.unidad, -1)
 			AND IFNULL(UT.nicho, -1) = IFNULL(U.nicho, -1)
@@ -279,14 +281,18 @@ CREATE TABLE rev_ubicaciones_totales (
 	subsector INT(10) NOT NULL,
 	seccion VARCHAR(10) NULL,
 	macizo INT(10) NULL,
+	pozo INT(10) NULL,
 	parcela INT(10) NULL,
 	fila INT(10) NULL,
 	unidad INT(10) NULL,
 	nicho INT(10) NULL,
 	mueble INT(10) NULL,
 	sepultura INT(10) NULL,
+	boveda INT(10) NULL,
 	bis_macizo BOOLEAN NULL,
 	bis BOOLEAN NULL,
 	PRIMARY KEY (ID),
 	FOREIGN KEY (subsector) REFERENCES rev_subsector(ID)
-);rev_ubicaciones_totales
+);
+
+

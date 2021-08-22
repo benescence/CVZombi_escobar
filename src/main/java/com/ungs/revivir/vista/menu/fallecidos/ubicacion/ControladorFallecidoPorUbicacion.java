@@ -5,7 +5,9 @@ import java.util.List;
 import javax.swing.JInternalFrame;
 
 import com.ungs.revivir.negocios.Busqueda;
+import com.ungs.revivir.negocios.Localizador;
 import com.ungs.revivir.negocios.manager.FallecidoUbicacionManager;
+import com.ungs.revivir.persistencia.definidos.Sector;
 import com.ungs.revivir.persistencia.definidos.SubSector;
 import com.ungs.revivir.persistencia.entidades.Ubicacion;
 import com.ungs.revivir.persistencia.entidades.vista.VFallecidoUbicacion;
@@ -84,6 +86,8 @@ public class ControladorFallecidoPorUbicacion implements ControladorInterno {
 		Integer bovedaMax= ventana.getBoveda().getValorMax();
 		
 		//SubSector subSector = (SubSector) ventana.getSubsector().getComboBox().getSelectedItem();
+		Sector sector = (Sector) ventana.getSector().getComboBox().getSelectedItem();
+		SubSector subSector = Localizador.mapearSector2(sector);
 		String seccion = ventana.getSeccion().getValor();
 		seccion = (seccion.equals("") ) ? null : seccion;
 		//boolean mostrar= ventana.getInCheckMostrarTodo().isSelected();
@@ -92,7 +96,7 @@ public class ControladorFallecidoPorUbicacion implements ControladorInterno {
 		
 		List<VFallecidoUbicacion> FallecidosUbicacion =  FallecidoUbicacionManager.traer(pozoMin, pozoMax, null, null, null,
 				null, filaMin, filaMax, null, null, nichoMin, nichoMax, null,
-				null, sepulturaMin, sepulturaMax, bovedaMin, bovedaMax, null, seccion,null,null,null);
+				null, sepulturaMin, sepulturaMax, bovedaMin, bovedaMax, subSector, seccion,null,null,null);
 		
 		ventana.getTabla().recargar(FallecidosUbicacion);
 	}

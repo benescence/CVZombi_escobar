@@ -6,9 +6,11 @@ import java.util.List;
 
 import javax.swing.JInternalFrame;
 
+import com.ungs.revivir.negocios.Localizador;
 import com.ungs.revivir.negocios.busqueda.Relacionador;
 import com.ungs.revivir.negocios.manager.FallecidoUbicacionManager;
 import com.ungs.revivir.negocios.manager.ClienteNotificacionManager;
+import com.ungs.revivir.persistencia.definidos.Sector;
 import com.ungs.revivir.persistencia.definidos.SubSector;
 import com.ungs.revivir.persistencia.entidades.Cliente;
 import com.ungs.revivir.persistencia.entidades.vista.VFallecidoUbicacion;
@@ -64,7 +66,9 @@ public class ControladorVencimientos implements ControladorInterno, Visualizable
 	}
 	
 	private void buscar() {
-		SubSector subSector = (SubSector) ventana.getSubsector().getComboBox().getSelectedItem();
+		//SubSector subSector = (SubSector) ventana.getSubsector().getComboBox().getSelectedItem();
+		Sector sector = (Sector) ventana.getSector().getComboBox().getSelectedItem();
+		SubSector subSector = Localizador.mapearSector2(sector);
 		Date desde = ventana.getDesde().getValor();
 		Date hasta = ventana.getHasta().getValor();
 		List<VFallecidoUbicacion> vencimientos = FallecidoUbicacionManager.buscarVencimientos(subSector, desde, hasta);
@@ -73,7 +77,8 @@ public class ControladorVencimientos implements ControladorInterno, Visualizable
 	}	
 
 	private void imprimirLista() {	
-		SubSector subSector = (SubSector) ventana.getSubsector().getComboBox().getSelectedItem();
+		Sector sector = (Sector) ventana.getSector().getComboBox().getSelectedItem();
+		SubSector subSector = Localizador.mapearSector2(sector);
 		Date desde = ventana.getDesde().getValor();
 		Date hasta = ventana.getHasta().getValor();
 		List<VFallecidoUbicacion> vencimientos = FallecidoUbicacionManager.buscarVencimientosSinLimite(subSector, desde, hasta);
@@ -81,7 +86,8 @@ public class ControladorVencimientos implements ControladorInterno, Visualizable
 	}
 
 	private void imprimirNotificaciones() {	
-		SubSector subSector = (SubSector) ventana.getSubsector().getComboBox().getSelectedItem();
+		Sector sector = (Sector) ventana.getSector().getComboBox().getSelectedItem();
+		SubSector subSector = Localizador.mapearSector2(sector);
 		Date desde = ventana.getDesde().getValor();
 		Date hasta = ventana.getHasta().getValor();
 		List<VClienteNotificacion> vencimientos = ClienteNotificacionManager.buscarVencimientosSinLimite(subSector, desde, hasta);

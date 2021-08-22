@@ -5,6 +5,8 @@ import java.util.List;
 import javax.swing.JInternalFrame;
 
 import com.ungs.revivir.negocios.Busqueda;
+import com.ungs.revivir.negocios.Localizador;
+import com.ungs.revivir.persistencia.definidos.Sector;
 import com.ungs.revivir.persistencia.definidos.SubSector;
 import com.ungs.revivir.persistencia.entidades.Ubicacion;
 import com.ungs.revivir.vista.principal.ControladorInterno;
@@ -81,8 +83,9 @@ public class ControladorUbicacionesLibres implements ControladorInterno {
 		Integer inhumacionMin = ventana.getInhumacion().getValorMin();
 		Integer inhumacionMax= ventana.getInhumacion().getValorMax();
 		
-		SubSector subSector = (SubSector) ventana.getSubsector().getComboBox().getSelectedItem();
-		String seccion = ventana.getSeccion().getValor();
+		Sector sector = (Sector) ventana.getSector().getComboBox().getSelectedItem();
+		SubSector subSector = Localizador.mapearSector2(sector);
+ 		String seccion = ventana.getSeccion().getValor();
 		seccion = (seccion.equals("") ) ? null : seccion;
 		boolean mostrar= ventana.getInCheckMostrarTodo().isSelected();
 		boolean macizo_bis= ventana.getInCheck_macizoBis().isSelected();

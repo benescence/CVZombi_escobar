@@ -92,7 +92,7 @@ public class ControladorFallecidoAM implements ControladorExterno {
 	
 	private Ubicacion traerUbicacionVerificada() throws Exception {
 		Sector sector = (Sector) ventana.getSector().getSelectedItem();
-		SubSector subsector = Localizador.mapearSector(sector);
+		SubSector subsector = Localizador.mapearSector2(sector);
 		String otroCementerio = ventana.getCementerio().getValor();
 		Integer nicho = (ventana.getNicho().isEnabled() ? ventana.getNicho().getValor() : null);
 		Integer fila = (ventana.getFila().isEnabled() ? ventana.getFila().getValor() : null);

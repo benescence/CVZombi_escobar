@@ -44,7 +44,6 @@ public class FallecidoUbicacionVOBDMySQL extends OBD implements FallecidoUbicaci
 	
 	private List<VFallecidoUbicacion> selectByCondicion(String condicion) {
 		String comandoSQL = "select ID, "+campos+" from "+tabla+" where ("+condicion+") limit "+limite+";";
-		System.out.println(comandoSQL);
 		return selectSQL(comandoSQL);
 	}
 	
@@ -79,7 +78,7 @@ public class FallecidoUbicacionVOBDMySQL extends OBD implements FallecidoUbicaci
 	
 	private List<VFallecidoUbicacion> selectSQL(String SQL) {
 		List<VFallecidoUbicacion> ret = new ArrayList<VFallecidoUbicacion>();
-		
+		System.out.println(SQL);
 		try { 
 			Class.forName(driver); 
 			Connection conexion = DriverManager.getConnection(cadenaConexion, usuarioBD, passwordBD); 
@@ -170,8 +169,8 @@ public class FallecidoUbicacionVOBDMySQL extends OBD implements FallecidoUbicaci
 			Integer unidadMin, Integer unidadMax, Integer nichoMin, Integer nichoMax, Integer muebleMin,
 			Integer muebleMax, Integer sepulturaMin, Integer sepulturaMax, Integer bovedaMin, Integer bovedaMax,
 			SubSector subSector, String seccion, Boolean mostrar, Boolean macizo_bis, Boolean bis) {
-		//String condicionSubsector =" subsector = " + Definido.subsector(subSector);
 		String condicionBase = "1=1" ;
+		String condicionSubsector =" and  subsector = " + Definido.subsector(subSector);
 		String condicionSeccion = (seccion != null) ? (  " and seccion = '" + seccion + "'") : "";
 		String condicionNichoMin = (nichoMin!= null ) ? (" and nicho >= "+nichoMin ): "";
 		String condicionNichoMax = ( nichoMax != null) ? (" and nicho <= " + nichoMax) : "";
@@ -194,6 +193,7 @@ public class FallecidoUbicacionVOBDMySQL extends OBD implements FallecidoUbicaci
 		String condicionCheckMacizobis = (macizo_bis!= null && macizo_bis) ? (" and bis_macizo = "+macizo_bis ) : "";
 		String condicionCheckbis = (bis!= null && bis) ? (" and bis = "+bis ) : "";
 		String condicion =  condicionBase 
+							+ condicionSubsector
 							+ condicionSeccion
 							+ condicionNichoMax
 							+ condicionNichoMin

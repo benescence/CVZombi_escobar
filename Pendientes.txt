@@ -1,0 +1,6 @@
+- filtro por sector en busqueda por ubicacion.
+- Vencimientos: sacar subsector, arreglar filtros,a futuro:: preferentemente filtros como la pantalla de consulta de fallecido por ubic.
+- Ubicaciones libres: sacar las ubicaciones que no corresponden. 
+
+- El sector nichera 18
+El sectro sepultura es el 16
