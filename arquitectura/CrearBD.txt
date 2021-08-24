@@ -2,7 +2,7 @@
 DROP DATABASE IF EXISTS revivir_escobar;
 CREATE DATABASE revivir_escobar;
 USE revivir_escobar;
-
+asas
 -- ESQUEMA ROLES
 CREATE TABLE rev_roles (
 	ID INT(1),
