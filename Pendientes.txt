@@ -5,5 +5,4 @@
 El sectro sepultura es el 16
 
 - Pasar "Pasar fallecido por ubicacion" a san miguel.
-- Error al cargar un alta completa en boveda
 - Hacer manual...
