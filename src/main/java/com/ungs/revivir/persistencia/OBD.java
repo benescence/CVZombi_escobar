@@ -7,7 +7,22 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class OBD {
-	protected final String driver = "com.mysql.jdbc.Driver";
+	public String tabla;
+	public String campos;
+	protected static String driver;
+	protected static String cadenaConexion;
+	protected static String usuarioBD; 
+	protected static String passwordBD;
+
+	static {
+		Configuracion configuracion = new Configuracion("config.properties");
+		driver = configuracion.recuperar("driver");
+		cadenaConexion = configuracion.recuperar("cadenaConexion");
+		usuarioBD = configuracion.recuperar("usuarioBD");
+		passwordBD = configuracion.recuperar("passwordBD");
+	}
+
+	
 	protected final Integer limite = 100;
 	protected static Connection conexion = null;
 	
@@ -17,9 +32,6 @@ public class OBD {
 	//protected String usuarioBD = "root"; 
 	//protected String passwordBD = "root";
 	
-	protected final String cadenaConexion = "jdbc:mysql://crematorioescobar.com:3306/cretorioescobar_Revivir2"; 
-	protected String usuarioBD = "cretorioescobar_Revivir2";
-	protected String passwordBD = "REVIVIR1a";
 	 
 
 	// Ejecutar sentencias que no traigan resultados
