@@ -204,20 +204,9 @@ public class ControladorAltaCompleta implements ClienteSeleccionable, Controlado
 		String otroCementerio = ventana.getCementerio().getValor();
 		Integer nicho = (ventana.getNicho().isEnabled() ? ventana.getNicho().getValor() : null);
 		Integer fila = (ventana.getFila().isEnabled() ? ventana.getFila().getValor() : null);
-		Integer macizo = (ventana.getMacizo().isEnabled() ? ventana.getMacizo().getValor():null);
-		Integer unidad = (ventana.getUnidad().isEnabled() ? ventana.getUnidad().getValor() : null);
 		Date vencimiento = ventana.getVencimiento().getValor();
-		Boolean bis = null;
-		if (ventana.getCheckBis().isEnabled()) 
-			bis = ventana.getCheckBis().isSelected();
-		
-		Boolean bis_macizo = null;
-		if (ventana.getCheckMacizo().isEnabled())
-			bis_macizo = ventana.getCheckMacizo().isSelected();
 
 		Integer sepultura = (ventana.getSepultura().isEnabled() ? ventana.getSepultura().getValor() : null);
-		Integer parcela = (ventana.getParcela().isEnabled() ? ventana.getParcela().getValor() : null);
-		Integer mueble = (ventana.getMueble().isEnabled() ? ventana.getMueble().getValor() : null);
 		Integer inhumacion = (ventana.getInhumacion().isEnabled() ? ventana.getInhumacion().getValor() : null);
 		Integer circ = (ventana.getCirc().isEnabled() ? ventana.getCirc().getValor(): null);
 
@@ -227,7 +216,7 @@ public class ControladorAltaCompleta implements ClienteSeleccionable, Controlado
 
 		
 		Ubicacion ubicacion = new Ubicacion(-1, subsector, otroCementerio, nicho, fila, seccion,
-				macizo, unidad, bis, bis_macizo, sepultura, parcela, mueble, inhumacion, circ, vencimiento);
+				 sepultura, inhumacion, circ, vencimiento);
 		
 		return Verificador.ubicacion(ubicacion);		
 	}	

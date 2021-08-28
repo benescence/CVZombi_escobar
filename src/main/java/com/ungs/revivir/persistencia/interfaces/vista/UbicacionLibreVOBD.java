@@ -16,21 +16,11 @@ public interface UbicacionLibreVOBD {
 			Integer circMin,
 			Integer filaMax,
 			Integer filaMin,
-			Integer parcelaMax,
-			Integer parcelaMin,
-			Integer unidadMax,
-			Integer unidadMin,
-			Integer muebleMax,
-			Integer muebleMin,
 			Integer sepulturaMax,
 			Integer sepulturaMin,
 			Integer inhumacionMax,
 			Integer inhumacionMin,
-			Integer macizoMax,
-			Integer macizoMin,
 			String seccion,
-			SubSector subsector,
-			Boolean macizo_BIS,
-			Boolean bis);
+			SubSector subsector);
 
 }

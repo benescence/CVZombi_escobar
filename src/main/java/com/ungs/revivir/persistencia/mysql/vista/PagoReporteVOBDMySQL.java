@@ -19,9 +19,9 @@ public class PagoReporteVOBDMySQL extends OBD implements PagoReporteVOBD {
 			+ "cargo_id, cargo_observaciones, cargo_pagado, "
 			+ "fallecido_id, fallecido_codigo, fallecido_nombre, fallecido_apellido, fallecido_dni, "
 			+ "servicio_id, servicio_nombre, servicio_historico, "
-			+ "ubicacion_ID, ubicacion_subsector, ubicacion_pozo, ubicacion_seccion, ubicacion_macizo, ubicacion_parcela, "
-			+ "ubicacion_fila, ubicacion_unidad, ubicacion_nicho, ubicacion_mueble, ubicacion_sepultura, "
-			+ "ubicacion_boveda, ubicacion_cementerio, ubicacion_vencimiento, ubicacion_bis_macizo, ubicacion_bis";
+			+ "ubicacion_ID, ubicacion_subsector, ubicacion_pozo, ubicacion_seccion,  "
+			+ "ubicacion_fila, ubicacion_nicho, ubicacion_sepultura, "
+			+ "ubicacion_boveda, ubicacion_cementerio, ubicacion_vencimiento";
 	private final String tabla = "rev_v_reporte_pagos";
 	
 	
@@ -78,18 +78,12 @@ public class PagoReporteVOBDMySQL extends OBD implements PagoReporteVOBD {
 					Definido.subsector(resultados.getInt("ubicacion_subsector")),
 					resultados.getInt("ubicacion_pozo"),
 					resultados.getString("ubicacion_seccion"),
-					resultados.getInt("ubicacion_macizo"),
-					resultados.getInt("ubicacion_parcela"),
 					resultados.getInt("ubicacion_fila"),
-					resultados.getInt("ubicacion_unidad"),
 					resultados.getInt("ubicacion_nicho"),
-					resultados.getInt("ubicacion_mueble"),
 					resultados.getInt("ubicacion_sepultura"),
 					resultados.getInt("ubicacion_boveda"),
 					resultados.getString("ubicacion_cementerio"),
-					resultados.getDate("ubicacion_vencimiento"),
-					resultados.getBoolean("ubicacion_bis_macizo"),
-					resultados.getBoolean("ubicacion_bis")
+					resultados.getDate("ubicacion_vencimiento")
 					));
 			}
 			

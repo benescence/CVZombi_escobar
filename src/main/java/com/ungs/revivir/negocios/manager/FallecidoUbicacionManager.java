@@ -42,9 +42,7 @@ public class FallecidoUbicacionManager {
 		return new Ubicacion(
 				fallecidoUbicacion.getUbicacion(), fallecidoUbicacion.getSubsector(), fallecidoUbicacion.getCementerio(),
 				fallecidoUbicacion.getNicho(), fallecidoUbicacion.getFila(),fallecidoUbicacion.getSeccion(),
-				fallecidoUbicacion.getMacizo(), fallecidoUbicacion.getUnidad(), fallecidoUbicacion.getBis() ,
-				fallecidoUbicacion.getBisMacizo(), fallecidoUbicacion.getSepultura(),
-				fallecidoUbicacion.getParcela(), fallecidoUbicacion.getMueble(), fallecidoUbicacion.getPozo(), fallecidoUbicacion.getBoveda() 
+				fallecidoUbicacion.getSepultura(), fallecidoUbicacion.getPozo(), fallecidoUbicacion.getBoveda() 
 				, fallecidoUbicacion.getVencimiento()
 			);
 	}
@@ -69,13 +67,7 @@ public class FallecidoUbicacionManager {
 				ubicacion.getNicho(),
 				ubicacion.getFila(),
 				ubicacion.getSeccion(),
-				ubicacion.getMacizo(),
-				ubicacion.getUnidad(),
-				ubicacion.getBis(),
-				ubicacion.getBis_macizo(),
 				ubicacion.getSepultura(),
-				ubicacion.getParcela(),
-				ubicacion.getMueble(),
 				ubicacion.getBoveda(),
 				ubicacion.getPozo(),
 				ubicacion.getVencimiento()

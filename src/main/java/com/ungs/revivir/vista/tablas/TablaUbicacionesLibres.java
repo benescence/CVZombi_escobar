@@ -10,8 +10,8 @@ import com.ungs.revivir.persistencia.entidades.Ubicacion;
 
 public class TablaUbicacionesLibres extends JTable {
 	private static final long serialVersionUID = 1L;
-	private String[] columnas = {"Seccion", "Macizo", "Parcela", "Fila", "Unidad",
-			"Nicho", "Mueble", "Sepultura","Macizo bis","bis"};
+	private String[] columnas = {"Seccion" ,"Fila","Pozo", "Boveda",
+			"Nicho", "Sepultura"};
 	private DefaultTableModel modelo;
 	private List<Ubicacion> lista;
 
@@ -31,15 +31,11 @@ public class TablaUbicacionesLibres extends JTable {
 			Object[] fila = {
 					
 					elemento.getSeccion(),
-					elemento.getMacizo(),
-					elemento.getParcela(),
 					elemento.getFila(),
-					elemento.getUnidad(),
+					elemento.getPozo(),
+					elemento.getBoveda(),
 					elemento.getNicho(),
-					elemento.getMueble(),
-					elemento.getSepultura(),
-					elemento.getBis_macizo() ? "Si" : "No",
-					elemento.getBis() ? "Si" : "No"
+					elemento.getSepultura()
 				};
 			modelo.addRow(fila);
 		}

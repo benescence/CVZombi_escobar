@@ -10,26 +10,16 @@ public interface UbicacionTotalOBD {
 	public List<Ubicacion>selectByrangos(
 			Integer nichoMax,
 			Integer nichoMin,
-			Integer circMax,
-			Integer circMin,
+			Integer pozoMax,
+			Integer pozoMin,
 			Integer filaMax,
 			Integer filaMin,
-			Integer parcelaMax,
-			Integer parcelaMin,
-			Integer unidadMax,
-			Integer unidadMin,
-			Integer muebleMax,
-			Integer muebleMin,
 			Integer sepulturaMax,
 			Integer sepulturaMin,
-			Integer inhumacionMax,
-			Integer inhumacionMin,
-			Integer macizoMax,
-			Integer macizoMin,
+			Integer bovedaMax,
+			Integer bovedaMin,
 			String seccion,
-			SubSector subsector,
-			Boolean macizo_BIS,
-			Boolean bis
+			SubSector subsector
 		);
 
 }

@@ -25,24 +25,12 @@ public class ControladorUbicacionesLibres implements ControladorInterno {
 		ventana.getCirc().setValorMin("");
 		ventana.getCirc().setValorMax("");
 		
-		ventana.getMacizo().setValorMin("");
-		ventana.getMacizo().setValorMax("");
-		
-		ventana.getParcela().setValorMin("");
-		ventana.getParcela().setValorMax("");
-		
 		ventana.getFila().setValorMin("");
 		ventana.getFila().setValorMax("");
-
-		ventana.getUnidad().setValorMin("");
-		ventana.getUnidad().setValorMax("");
 		
 		ventana.getNicho().setValorMin("");
 		ventana.getNicho().setValorMax("");
-		
-		ventana.getMueble().setValorMin("");
-		ventana.getMueble().setValorMax("");
-		
+			
 		ventana.getSepultura().setValorMin("");
 		ventana.getSepultura().setValorMax("");
 
@@ -51,31 +39,18 @@ public class ControladorUbicacionesLibres implements ControladorInterno {
 		
 		ventana.getSeccion().setValor("");
 		ventana.getInCheckMostrarTodo().setSelected(false);
-		ventana.getInCheck_macizoBis().setSelected(false);
-		ventana.getInCheckBis().setSelected(false);
 	}
 	
 	private void buscar() {
 		Integer circMin = ventana.getCirc().getValorMin();
 		Integer circMax = ventana.getCirc().getValorMax();
-		
-		Integer macizoMin = ventana.getMacizo().getValorMin();
-		Integer macizoMax = ventana.getMacizo().getValorMax();
-		
-		Integer parcelaMin = ventana.getParcela().getValorMin();
-		Integer parcelaMax = ventana.getParcela().getValorMax();
+
 
 		Integer filaMin = ventana.getFila().getValorMin();
 		Integer filaMax = ventana.getFila().getValorMax();
 
-		Integer unidadMin = ventana.getUnidad().getValorMin();
-		Integer unidadMax = ventana.getUnidad().getValorMax();
-
 		Integer nichoMin = ventana.getNicho().getValorMin();
 		Integer nichoMax = ventana.getNicho().getValorMax();
-
-		Integer muebleMin = ventana.getMueble().getValorMin();
-		Integer muebleMax = ventana.getMueble().getValorMax();
 
 		Integer sepulturaMin= ventana.getSepultura().getValorMin();
 		Integer sepulturaMax = ventana.getSepultura().getValorMax();
@@ -88,12 +63,10 @@ public class ControladorUbicacionesLibres implements ControladorInterno {
  		String seccion = ventana.getSeccion().getValor();
 		seccion = (seccion.equals("") ) ? null : seccion;
 		boolean mostrar= ventana.getInCheckMostrarTodo().isSelected();
-		boolean macizo_bis= ventana.getInCheck_macizoBis().isSelected();
-		boolean bis= ventana.getInCheckBis().isSelected();
-		
-		List<Ubicacion> ubicaciones = Busqueda.ubicaciones(circMin, circMax, macizoMin, macizoMax, parcelaMin,
-				parcelaMax, filaMin, filaMax, unidadMin, unidadMax, nichoMin, nichoMax, muebleMin,
-				muebleMax, sepulturaMin, sepulturaMax, inhumacionMin, inhumacionMax, subSector, seccion,mostrar,macizo_bis,bis);
+
+		List<Ubicacion> ubicaciones = Busqueda.ubicaciones(circMin, circMax,
+				 filaMin, filaMax,nichoMin, nichoMax,
+				sepulturaMin, sepulturaMax, inhumacionMin, inhumacionMax, subSector, seccion,mostrar);
 		
 		ventana.getTabla().recargar(ubicaciones);
 	}

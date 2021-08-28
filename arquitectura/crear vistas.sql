@@ -15,30 +15,19 @@ CREATE VIEW rev_v_ubicaciones_libres AS
 		UT.subsector,
 		UT.pozo,
 		UT.seccion,
-		UT.macizo,
-		UT.parcela,
 		UT.fila,
-		UT.unidad,
 		UT.nicho,
-		UT.mueble,
 		UT.sepultura,
-		UT.inhumacion,
-		UT.bis_macizo,
-		UT.bis
+		UT.boveda
 	FROM rev_ubicaciones_totales UT
 		LEFT JOIN rev_ubicaciones U ON IFNULL(UT.fila, -1) = IFNULL(U.fila, -1)
 			AND IFNULL(UT.subsector, -1) = IFNULL(U.subsector, -1)
-			AND IFNULL(UT.circ, -1) = IFNULL(U.circ, -1)
+			AND IFNULL(UT.pozo, -1) = IFNULL(U.pozo, -1)
 			AND IFNULL(UT.seccion, -1) = IFNULL(U.seccion, -1)
 			AND IFNULL(UT.macizo, -1) = IFNULL(U.macizo, -1)
-			AND IFNULL(UT.parcela, -1) = IFNULL(U.parcela, -1)
-			AND IFNULL(UT.unidad, -1) = IFNULL(U.unidad, -1)
 			AND IFNULL(UT.nicho, -1) = IFNULL(U.nicho, -1)
-			AND IFNULL(UT.mueble, -1) = IFNULL(U.mueble, -1)
 			AND IFNULL(UT.sepultura, -1) = IFNULL(U.sepultura, -1)
-			AND IFNULL(UT.inhumacion, -1) = IFNULL(U.inhumacion, -1)
-			AND IFNULL(UT.bis_macizo, -1) = IFNULL(U.bis_macizo, -1)
-			AND IFNULL(UT.bis, -1) = IFNULL(U.bis, -1)
+			AND IFNULL(UT.boveda, -1) = IFNULL(U.boveda, -1)
 	WHERE U.ID IS NULL
 ;
 
@@ -63,17 +52,11 @@ CREATE VIEW rev_v_fallecidos AS
 		U.subsector,
 		U.pozo,
 		U.seccion,
-		U.macizo,
-		U.parcela,
 		U.fila,
-		U.unidad,
 		U.nicho,
-		U.mueble,
 		U.sepultura,
 		U.boveda,
-		U.cementerio,
-		U.bis_macizo,
-		U.bis
+		U.cementerio
 	FROM rev_fallecidos F
 		LEFT JOIN rev_ubicaciones U ON F.ubicacion = U.id
 ;
@@ -108,17 +91,11 @@ CREATE VIEW rev_v_cliente_notificaciones AS
 		U.subsector,
 		U.pozo,
 		U.seccion,
-		U.macizo,
-		U.parcela,
 		U.fila,
-		U.unidad,
 		U.nicho,
-		U.mueble,
 		U.sepultura,
 		U.boveda,
-		U.cementerio,
-		U.bis_macizo,
-		U.bis
+		U.cementerio
 	FROM rev_fallecidos F
 		LEFT JOIN rev_responsables R ON F.ID = R.fallecido 
 		LEFT JOIN rev_clientes C ON C.ID = R.cliente
@@ -153,18 +130,12 @@ CREATE VIEW rev_v_reporte_pagos AS
 		UB.subsector AS ubicacion_subsector,
 		UB.pozo AS ubicacion_pozo,
 		UB.seccion AS ubicacion_seccion,
-		UB.macizo AS ubicacion_macizo,
-		UB.parcela AS ubicacion_parcela,
 		UB.fila AS ubicacion_fila,
-		UB.unidad AS ubicacion_unidad,
 		UB.nicho AS ubicacion_nicho,
-		UB.mueble AS ubicacion_mueble,
 		UB.sepultura AS ubicacion_sepultura,
 		UB.boveda AS ubicacion_boveda,
 		UB.cementerio AS ubicacion_cementerio,
-		UB.vencimiento AS ubicacion_vencimiento,
-		UB.bis_macizo AS ubicacion_bis_macizo,
-		UB.bis AS ubicacion_bis
+		UB.vencimiento AS ubicacion_vencimiento
 	FROM rev_pagos PA
 		LEFT JOIN rev_cargos CA ON PA.cargo = CA.id
 		LEFT JOIN rev_fallecidos FA ON CA.fallecido = FA.id

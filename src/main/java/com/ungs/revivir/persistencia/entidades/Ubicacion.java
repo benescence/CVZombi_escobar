@@ -4,28 +4,21 @@ import java.sql.Date;
 import com.ungs.revivir.persistencia.definidos.SubSector;
 
 public class Ubicacion {
-	private Integer ID, nicho, fila, macizo, unidad, sepultura, parcela, mueble, pozo, boveda;
-	private Boolean bis, bis_macizo; 
+	private Integer ID, nicho, fila, sepultura, pozo, boveda;
 	private String  cementerio, seccion;
 	private SubSector subsector;
 	private Date vencimiento;
 	
 	public Ubicacion(Integer ID, SubSector subsector, String cementerio, Integer nicho, Integer fila,
-			String seccion, Integer macizo, Integer unidad, Boolean bis, Boolean bis_macizo, Integer sepultura,
-			Integer parcela, Integer mueble, Integer pozo, Integer boveda, Date vencimiento) {
+			String seccion, Integer sepultura,
+			 Integer pozo, Integer boveda, Date vencimiento) {
 		this.ID = ID;
 		this.subsector = subsector;
 		this.cementerio = cementerio;
 		this.nicho = nicho;
 		this.fila = fila;
 		this.seccion = seccion;
-		this.macizo = macizo;
-		this.unidad = unidad;
-		this.bis = bis;
-		this.bis_macizo = bis_macizo;
 		this.sepultura = sepultura;
-		this.parcela = parcela;
-		this.mueble = mueble;
 		this.pozo = pozo;
 		this.boveda = boveda;
 		this.vencimiento = vencimiento;
@@ -35,24 +28,8 @@ public class Ubicacion {
 		return ID;
 	}
 
-	public void setID(Integer ID) {
-		this.ID = ID;
-	}
-
-	public SubSector getSubsector() {
-		return subsector;
-	}
-
-	public void setSubsector(SubSector subsector) {
-		this.subsector = subsector;
-	}
-
-	public String getCementerio() {
-		return cementerio;
-	}
-
-	public void setCementerio(String cementerio) {
-		this.cementerio = cementerio;
+	public void setID(Integer iD) {
+		ID = iD;
 	}
 
 	public Integer getNicho() {
@@ -71,38 +48,6 @@ public class Ubicacion {
 		this.fila = fila;
 	}
 
-	public Integer getMacizo() {
-		return macizo;
-	}
-
-	public void setMacizo(Integer macizo) {
-		this.macizo = macizo;
-	}
-
-	public Integer getUnidad() {
-		return unidad;
-	}
-
-	public void setUnidad(Integer unidad) {
-		this.unidad = unidad;
-	}
-
-	public Boolean getBis() {
-		return bis;
-	}
-
-	public void setBis(Boolean bis) {
-		this.bis = bis;
-	}
-
-	public Boolean getBis_macizo() {
-		return bis_macizo;
-	}
-
-	public void setBis_macizo(Boolean bis_macizo) {
-		this.bis_macizo = bis_macizo;
-	}
-
 	public Integer getSepultura() {
 		return sepultura;
 	}
@@ -111,36 +56,28 @@ public class Ubicacion {
 		this.sepultura = sepultura;
 	}
 
-	public Integer getParcela() {
-		return parcela;
-	}
-
-	public void setParcela(Integer parcela) {
-		this.parcela = parcela;
-	}
-
-	public Integer getMueble() {
-		return mueble;
-	}
-
-	public void setMueble(Integer mueble) {
-		this.mueble = mueble;
-	}
-
 	public Integer getPozo() {
 		return pozo;
 	}
 
-	public void setPozo(Integer inhumacion) {
-		this.pozo = inhumacion;
+	public void setPozo(Integer pozo) {
+		this.pozo = pozo;
 	}
 
 	public Integer getBoveda() {
 		return boveda;
 	}
 
-	public void setBoveda(Integer circ) {
-		this.boveda = circ;
+	public void setBoveda(Integer boveda) {
+		this.boveda = boveda;
+	}
+
+	public String getCementerio() {
+		return cementerio;
+	}
+
+	public void setCementerio(String cementerio) {
+		this.cementerio = cementerio;
 	}
 
 	public String getSeccion() {
@@ -151,11 +88,20 @@ public class Ubicacion {
 		this.seccion = seccion;
 	}
 
+	public SubSector getSubsector() {
+		return subsector;
+	}
+
+	public void setSubsector(SubSector subsector) {
+		this.subsector = subsector;
+	}
+
 	public Date getVencimiento() {
-		return vencimiento;}
-	
+		return vencimiento;
+	}
+
 	public void setVencimiento(Date vencimiento) {
 		this.vencimiento = vencimiento;
 	}
-	
+
 }

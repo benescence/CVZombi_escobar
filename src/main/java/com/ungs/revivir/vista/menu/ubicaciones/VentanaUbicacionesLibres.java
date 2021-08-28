@@ -1,8 +1,6 @@
 package com.ungs.revivir.vista.menu.ubicaciones;
 
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JCheckBox;
@@ -27,12 +25,10 @@ public class VentanaUbicacionesLibres extends VentanaInterna{
 	private TablaUbicacionesLibres tabla;
 	private EntradaLista<Sector> inSector;
 	private EntradaLista<SubSector> inSubsector;
-	private EntradaNumeroEntre inCirc, inMacizo, inParcela, inFila, inUnidad, inNicho, inMueble, inSepultura, inInhumacion;
+	private EntradaNumeroEntre inPozo, inFila, inNicho, inSepultura, inBoveda;
 	private EntradaTexto inSeccion;
 	private Boton btnBuscar, btnLimpiar;
 	private JCheckBox inCheckMostrarTodo;
-	private JCheckBox inCheckMacizo_bis;
-	private JCheckBox inCheckbis;
 	
 	public VentanaUbicacionesLibres() {
 		super("Ubicaciones libres", 500, 500);
@@ -84,40 +80,29 @@ public class VentanaUbicacionesLibres extends VentanaInterna{
 		//inSubsector.getComboBox().setSelectedIndex(0);
 
 		// Inicializo el esto de las entradas
-		inCirc = new EntradaNumeroEntre("Circ", dimTexto, dimEntradaDoble);
-		inMacizo = new EntradaNumeroEntre("Macizo", dimTexto, dimEntradaDoble);
-		inParcela = new EntradaNumeroEntre("Parcela", dimTexto, dimEntradaDoble);
+		inPozo = new EntradaNumeroEntre("Circ", dimTexto, dimEntradaDoble);
 		inFila = new EntradaNumeroEntre("Fila", dimTexto, dimEntradaDoble);
-		inUnidad = new EntradaNumeroEntre("Unidad", dimTexto, dimEntradaDoble);
 		inNicho = new EntradaNumeroEntre("Nicho", dimTexto, dimEntradaDoble);
-		inMueble = new EntradaNumeroEntre("Mueble", dimTexto, dimEntradaDoble);
 		inSepultura = new EntradaNumeroEntre("Sepultura", dimTexto, dimEntradaDoble);
-		inInhumacion= new EntradaNumeroEntre("Inhumacion", dimTexto, dimEntradaDoble);
+		inBoveda= new EntradaNumeroEntre("Inhumacion", dimTexto, dimEntradaDoble);
 		inSeccion = new EntradaTexto("Seccion", dimTexto, dimEntrada);
 		inCheckMostrarTodo = new JCheckBox("MostrarTodo");
-		inCheckMacizo_bis = new JCheckBox("Macizo bis");
-		inCheckbis = new JCheckBox("bis");
+		
 		
 		PanelVertical ret1 = new PanelVertical();
 		ret1.setBorder(new EmptyBorder(0, 0, 0, 10));
 		ret1.add(inSector);
 		//ret1.add(inSubsector);
-		ret1.add(inCirc);
-		ret1.add(inMacizo);
-		ret1.add(inParcela);
+		ret1.add(inPozo);
 		ret1.add(inFila);
 		
 		PanelVertical ret2 = new PanelVertical();
 		ret2.setBorder(new EmptyBorder(0, 10, 0, 0));
 		ret2.add(inSeccion);
-		ret2.add(inUnidad);
 		ret2.add(inNicho);
-		ret2.add(inMueble);
 		ret2.add(inSepultura);
-		ret2.add(inInhumacion);
+		ret2.add(inBoveda);
 		ret2.add(inCheckMostrarTodo);
-		ret2.add(inCheckMacizo_bis);
-		ret2.add(inCheckbis);
 		
 		PanelHorizontal ret3 = new PanelHorizontal();
 		ret3.add(ret1);
@@ -142,52 +127,34 @@ public class VentanaUbicacionesLibres extends VentanaInterna{
 	}
 
 	public EntradaNumeroEntre getCirc() {
-		return inCirc;
+		return inPozo;
 	}
 
-	public EntradaNumeroEntre getMacizo() {
-		return inMacizo;
-	}
 
-	public EntradaNumeroEntre getParcela() {
-		return inParcela;
-	}
 
 	public EntradaNumeroEntre getFila() {
 		return inFila;
 	}
 
-	public EntradaNumeroEntre getUnidad() {
-		return inUnidad;
-	}
 
 	public EntradaNumeroEntre getNicho() {
 		return inNicho;
 	}
 
-	public EntradaNumeroEntre getMueble() {
-		return inMueble;
-	}
+
 
 	public EntradaNumeroEntre getSepultura() {
 		return inSepultura;
 	}
 
 	public EntradaNumeroEntre getInhumacion() {
-		return inInhumacion;
+		return inBoveda;
 	}
 
 	public EntradaTexto getSeccion() {
 		return inSeccion;
 	}
 
-	public JCheckBox getInCheck_macizoBis() {
-		return inCheckMacizo_bis;
-	}
-	
-	public JCheckBox getInCheckBis() {
-		return inCheckbis;
-	}
 	
 	public JCheckBox getInCheckMostrarTodo() {
 		return inCheckMostrarTodo;

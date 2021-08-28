@@ -32,52 +32,37 @@ public class Busqueda {
 	}
 
 	public static List<Ubicacion> ubicaciones(
-			Integer circMin, Integer circMax,
-			Integer macizoMin, Integer macizoMax,
-			Integer parcelaMin, Integer parcelaMax,
+			Integer pozoMin, Integer pozoMax,
 			Integer filaMin, Integer filaMax,
-			Integer unidadMin, Integer unidadMax,
 			Integer nichoMin, Integer nichoMax,
-			Integer muebleMin, Integer muebleMax,
 			Integer sepulturaMin, Integer sepulturaMax,
-			Integer inhumacionMin, Integer inhumacionMax,
+			Integer bovedaMin, Integer bovedaMax,
 			SubSector subSector,
 			String seccion,
-			boolean mostrar,
-			boolean macizo_bis,
-			boolean bis) {
+			boolean mostrar) {
 		
 		// Si esta activado el FLAG mostrar trae todas las ubicaciones posibles (no importa si esta ocupado o no)
 		UbicacionTotalOBD obd_total = FactoryOBD.crearUbicacionTotalOBD();
 		if(mostrar)
 			return obd_total.selectByrangos(
 					nichoMax, nichoMin,
-					circMax, circMin,
+					pozoMax, pozoMin,
 					filaMax, filaMin,
-					parcelaMax, parcelaMin,
-					unidadMax, unidadMin,
-					muebleMax, muebleMin,
 					sepulturaMax, sepulturaMin,
-					inhumacionMax, inhumacionMin,
-					macizoMax, macizoMin,
+					bovedaMax, bovedaMin,
 					seccion,
-					subSector,macizo_bis, bis);
+					subSector);
 
 		// De lo contrario trae solo las ubicaciones que no estan ocupado
 		UbicacionLibreVOBD obd_libre = FactoryOBD.crearUbicacionLibreOBD();
 		return obd_libre.selectByrangos(
 				nichoMax, nichoMin,
-				circMax, circMin,
+				pozoMax, pozoMin,
 				filaMax, filaMin,
-				parcelaMax, parcelaMin,
-				unidadMax, unidadMin,
-				muebleMax, muebleMin,
 				sepulturaMax, sepulturaMin,
-				inhumacionMax, inhumacionMin,
-				macizoMax, macizoMin,
+				bovedaMax, bovedaMin,
 				seccion,
-				subSector,
-				macizo_bis,bis);
+				subSector);
 	}
 
 

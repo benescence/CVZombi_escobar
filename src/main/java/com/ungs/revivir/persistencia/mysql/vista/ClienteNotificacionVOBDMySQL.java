@@ -18,8 +18,8 @@ import com.ungs.revivir.persistencia.interfaces.vista.ClienteNotificacionVOBD;
 public class ClienteNotificacionVOBDMySQL extends OBD implements ClienteNotificacionVOBD {
 	private final String campos = "cli_nombre,cli_apellido,cli_dni, cli_telefono,domicilio,email,ubicacion, DNI, "
 			+ "apellido, nombre, fecha_fallecimiento, tipo_fallecimiento, cod_fallecido, "
-			+ "cocheria, fecha_ingreso, subsector, cementerio, nicho, fila, seccion, macizo, unidad, bis, bis_macizo, "
-			+ "sepultura, parcela, mueble, boveda, pozo, vencimiento";
+			+ "cocheria, fecha_ingreso, subsector, cementerio, nicho, fila, seccion, "
+			+ "sepultura, boveda, pozo, vencimiento";
 	private final String tabla = "rev_v_cliente_notificaciones";
 		
 	@Override
@@ -93,20 +93,9 @@ public class ClienteNotificacionVOBDMySQL extends OBD implements ClienteNotifica
 				Integer nicho = resultados.getInt("nicho");
 				nicho = (resultados.wasNull())? null: nicho;
 
-				Integer macizo = resultados.getInt("macizo");
-				macizo = (resultados.wasNull())? null: macizo;
-				
-				Integer unidad = resultados.getInt("unidad");
-				unidad = (resultados.wasNull())? null: unidad;
 				
 				Integer sepultura = resultados.getInt("sepultura");
 				sepultura = (resultados.wasNull())? null: sepultura;
-				
-				Integer parcela = resultados.getInt("parcela");
-				parcela = (resultados.wasNull())? null: parcela;
-				
-				Integer mueble = resultados.getInt("mueble");
-				mueble = (resultados.wasNull())? null: mueble;
 				
 				Integer boveda = resultados.getInt("boveda");
 				boveda = (resultados.wasNull())? null: boveda;
@@ -114,11 +103,6 @@ public class ClienteNotificacionVOBDMySQL extends OBD implements ClienteNotifica
 				Integer pozo = resultados.getInt("pozo");
 				pozo = (resultados.wasNull())? null: pozo;
 
-				Boolean bis = resultados.getBoolean("bis");
-				bis = (resultados.wasNull())? null: bis;
-
-				Boolean bisMacizo = resultados.getBoolean("bis_macizo");
-				bisMacizo = (resultados.wasNull())? null: bisMacizo;
 				
 				LocalDate vencimientoLocal = (LocalDate) resultados.getObject("vencimiento", LocalDate.class);
 				Date vencimiento = vencimientoLocal == null ? null : Date.valueOf(vencimientoLocal);
@@ -146,13 +130,7 @@ public class ClienteNotificacionVOBDMySQL extends OBD implements ClienteNotifica
 						nicho,
 						fila,
 						resultados.getString("seccion"),
-						macizo,
-						unidad,
-						bis,
-						bisMacizo,
 						sepultura,
-						parcela,
-						mueble,
 						boveda,
 						pozo,
 						vencimiento

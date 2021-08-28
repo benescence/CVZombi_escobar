@@ -14,7 +14,7 @@ import com.ungs.revivir.persistencia.interfaces.vista.UbicacionLibreVOBD;
 
 public class UbicacionLibreVOBDMySQL extends OBD implements UbicacionLibreVOBD {
 	private final String campos = "subsector, nicho, fila,"
-			+ "seccion, macizo, unidad, bis, bis_macizo, sepultura, parcela, mueble, boveda, pozo";
+			+ "seccion, sepultura, boveda, pozo";
 	private final String tabla = "rev_v_ubicaciones_libres";
 	
 	@Override
@@ -40,32 +40,14 @@ public class UbicacionLibreVOBDMySQL extends OBD implements UbicacionLibreVOBD {
 				Integer nicho = resultados.getInt("nicho");
 				nicho = (resultados.wasNull())? null: nicho;
 
-				Integer macizo = resultados.getInt("macizo");
-				macizo = (resultados.wasNull())? null: macizo;
-				
-				Integer unidad = resultados.getInt("unidad");
-				unidad = (resultados.wasNull())? null: unidad;
-				
 				Integer sepultura = resultados.getInt("sepultura");
 				sepultura = (resultados.wasNull())? null: sepultura;
-				
-				Integer parcela = resultados.getInt("parcela");
-				parcela = (resultados.wasNull())? null: parcela;
-				
-				Integer mueble = resultados.getInt("mueble");
-				mueble = (resultados.wasNull())? null: mueble;
 				
 				Integer inhumacion = resultados.getInt("boveda");
 				inhumacion = (resultados.wasNull())? null: inhumacion;
 
 				Integer circ = resultados.getInt("pozo");
 				circ = (resultados.wasNull())? null: circ;
-
-				Boolean bis = resultados.getBoolean("bis");
-				bis = (resultados.wasNull())? null: bis;
-
-				Boolean bisMacizo = resultados.getBoolean("bis_macizo");
-				bisMacizo = (resultados.wasNull())? null: bisMacizo;
 				
 				ret.add(
 					new Ubicacion(
@@ -75,13 +57,7 @@ public class UbicacionLibreVOBDMySQL extends OBD implements UbicacionLibreVOBD {
 						nicho,
 						fila,
 						resultados.getString("seccion"),
-						macizo,
-						unidad,
-						(bis==null) ? false : bis,
-						(bisMacizo==null) ? false : bisMacizo,
 						sepultura,
-						parcela,
-						mueble,
 						inhumacion,
 						circ,
 						null
@@ -107,14 +83,10 @@ public class UbicacionLibreVOBDMySQL extends OBD implements UbicacionLibreVOBD {
 									Integer nichoMax, Integer nichoMin,
 									Integer circMax, Integer circMin,
 									Integer filaMax, Integer filaMin,
-									Integer parcelaMax, Integer parcelaMin,
-									Integer unidadMax, Integer unidadMin,
-									Integer muebleMax, Integer muebleMin,
 									Integer sepulturaMax, Integer sepulturaMin,
 									Integer inhumacionMax, Integer inhumacionMin,
-									Integer macizoMax, Integer macizoMin,
 									String seccion,
-									SubSector subsector, Boolean macizo_BIS, Boolean bis) {
+									SubSector subsector) {
 			
 		String condicionSubsector =" subsector = " + Definido.subsector(subsector);
 		String condicionSeccion = (seccion != null) ? (" and "+  "seccion = '" + seccion + "'") : "";
@@ -124,20 +96,10 @@ public class UbicacionLibreVOBDMySQL extends OBD implements UbicacionLibreVOBD {
 		String condicionFilaMin = (filaMin!= null ) ? (" and fila >= "+filaMin) : "";
 		String condicionCircMax = (circMax != null) ? (" and pozo <= " + circMax) : "";
 		String condicionCircMin = (circMin!= null) ? (" and pozo >= "+circMin ) : "";
-		String condicionUnidadMin = (unidadMin!= null ) ? (" and unidad >= "+unidadMin ) : "";
-		String condicionUnidadMax= ( unidadMax != null) ? ("  and unidad <= " + unidadMax) : "";		
-		String condicionParcelaMax = ( parcelaMax != null) ? ("  and  parcela <= " + parcelaMax) : "";
-		String condicionParcelaMin = (parcelaMin!= null ) ? (" and parcela >= "+parcelaMin ) : "";
-		String condicionMuebleMax = (  muebleMax != null) ? ("  and mueble <= " + muebleMax) : "";
-		String condicionMuebleMin = (muebleMin!= null ) ? (" and mueble >= "+muebleMin) : "";
-		String condicionMacizoMax = ( macizoMax != null) ? ("  and macizo <= " + macizoMax) : "";
-		String condicionMacizoMin = (macizoMin!= null ) ? (" and macizo >= "+macizoMin ) : "";	
 		String condicioninhumacionMax = (inhumacionMax != null) ? ("  and boveda <= " + inhumacionMax) : "";
 		String condicioninhumacionMin = (inhumacionMin!= null) ? (" and boveda >= "+inhumacionMin) : "";
 		String condicionSepulturaMax = (sepulturaMax != null) ? ("  and sepultura <= " + sepulturaMax) : "";
 		String condicionSepulturaMin = (sepulturaMin!= null) ? (" and sepultura >= "+sepulturaMin ) : "";
-		String condicionCheckMacizobis = (macizo_BIS!= null && macizo_BIS) ? (" and bis_macizo = "+macizo_BIS ) : "";
-		String condicionCheckbis = (bis!= null && bis) ? (" and bis = "+bis ) : "";
 		String condicion =  condicionSubsector 
 							+ condicionSeccion
 							+ condicionNichoMax
@@ -146,20 +108,11 @@ public class UbicacionLibreVOBDMySQL extends OBD implements UbicacionLibreVOBD {
 							+ condicionFilaMax
 							+ condicionCircMax
 							+ condicionCircMin
-							+ condicionUnidadMax
-							+ condicionUnidadMin
-							+ condicionParcelaMin
-							+ condicionParcelaMax
-							+ condicionMuebleMax
-							+ condicionMuebleMin
-							+ condicionMacizoMax
-							+ condicionMacizoMin
 							+ condicioninhumacionMax
 							+ condicioninhumacionMin
 							+ condicionSepulturaMax 
-							+ condicionSepulturaMin
-							+ condicionCheckMacizobis
-							+ condicionCheckbis;
+							+ condicionSepulturaMin;
+
 		return selectByCondicion(condicion, limite);		
 	}
 

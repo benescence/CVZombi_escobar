@@ -55,13 +55,7 @@ public class PagoReporteManager {
 				reporte.getUbicacionNicho(),
 				reporte.getUbicacionFila(),
 				reporte.getUbicacionSeccion(),
-				reporte.getUbicacionMacizo(),
-				reporte.getUbicacionUnidad(),
-				reporte.getUbicacionBis(),
-				reporte.getUbicacionBisMacizo(),
 				reporte.getUbicacionSepultura(),
-				reporte.getUbicacionParcela(),
-				reporte.getUbicacionMueble(),
 				reporte.getUbicacionPozo(),
 				reporte.getUbicacionBoveda(),
 				reporte.getUbicacionVencimiento()

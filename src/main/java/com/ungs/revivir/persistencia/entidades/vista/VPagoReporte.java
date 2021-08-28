@@ -35,18 +35,13 @@ public class VPagoReporte {
 	private SubSector ubicacionSubsector;
 	private Integer ubicacionPozo;
 	private String ubicacionSeccion;
-	private Integer ubicacionMacizo;
-	private Integer ubicacionParcela;
 	private Integer ubicacionFila;
-	private Integer ubicacionUnidad;
 	private Integer ubicacionNicho;
-	private Integer ubicacionMueble;
 	private Integer ubicacionSepultura;
 	private Integer ubicacionBoveda;
 	private String ubicacionCementerio;
 	private Date ubicacionVencimiento;
-	private Boolean ubicacionBisMacizo;
-	private Boolean ubicacionBis;
+
 	
 	public VPagoReporte(
 			
@@ -64,10 +59,9 @@ public class VPagoReporte {
 
 			// Parametros ubicacion
 			Integer ubicacionID, SubSector ubicacionSubsector, Integer ubicacionPozo,
-			String ubicacionSeccion, Integer ubicacionMacizo, Integer ubicacionParcela, Integer ubicacionFila,
-			Integer ubicacionUnidad, Integer ubicacionNicho, Integer ubicacionMueble, Integer ubicacionSepultura,
-			Integer ubicacionBoveda, String ubicacionCementerio, Date ubicacionVencimiento,
-			Boolean ubicacionBisMacizo, Boolean ubicacionBis) {
+			String ubicacionSeccion, Integer ubicacionFila,Integer ubicacionNicho, Integer ubicacionSepultura,
+			Integer ubicacionBoveda, String ubicacionCementerio, Date ubicacionVencimiento
+			) {
 		
 		this.pagoID = pagoID;
 		this.pagoImporte = pagoImporte;
@@ -92,18 +86,12 @@ public class VPagoReporte {
 		this.ubicacionSubsector = ubicacionSubsector;
 		this.ubicacionPozo = ubicacionPozo;
 		this.ubicacionSeccion = ubicacionSeccion;
-		this.ubicacionMacizo = ubicacionMacizo;
-		this.ubicacionParcela = ubicacionParcela;
 		this.ubicacionFila = ubicacionFila;
-		this.ubicacionUnidad = ubicacionUnidad;
 		this.ubicacionNicho = ubicacionNicho;
-		this.ubicacionMueble = ubicacionMueble;
 		this.ubicacionSepultura = ubicacionSepultura;
 		this.ubicacionBoveda = ubicacionBoveda;
 		this.ubicacionCementerio = ubicacionCementerio;
 		this.ubicacionVencimiento = ubicacionVencimiento;
-		this.ubicacionBisMacizo = ubicacionBisMacizo;
-		this.ubicacionBis = ubicacionBis;
 	}
 
 	public Integer getPagoID() {
@@ -258,21 +246,7 @@ public class VPagoReporte {
 		this.ubicacionSeccion = ubicacionSeccion;
 	}
 
-	public Integer getUbicacionMacizo() {
-		return ubicacionMacizo;
-	}
 
-	public void setUbicacionMacizo(Integer ubicacionMacizo) {
-		this.ubicacionMacizo = ubicacionMacizo;
-	}
-
-	public Integer getUbicacionParcela() {
-		return ubicacionParcela;
-	}
-
-	public void setUbicacionParcela(Integer ubicacionParcela) {
-		this.ubicacionParcela = ubicacionParcela;
-	}
 
 	public Integer getUbicacionFila() {
 		return ubicacionFila;
@@ -282,13 +256,8 @@ public class VPagoReporte {
 		this.ubicacionFila = ubicacionFila;
 	}
 
-	public Integer getUbicacionUnidad() {
-		return ubicacionUnidad;
-	}
 
-	public void setUbicacionUnidad(Integer ubicacionUnidad) {
-		this.ubicacionUnidad = ubicacionUnidad;
-	}
+
 
 	public Integer getUbicacionNicho() {
 		return ubicacionNicho;
@@ -298,13 +267,7 @@ public class VPagoReporte {
 		this.ubicacionNicho = ubicacionNicho;
 	}
 
-	public Integer getUbicacionMueble() {
-		return ubicacionMueble;
-	}
 
-	public void setUbicacionMueble(Integer ubicacionMueble) {
-		this.ubicacionMueble = ubicacionMueble;
-	}
 
 	public Integer getUbicacionSepultura() {
 		return ubicacionSepultura;
@@ -338,21 +301,5 @@ public class VPagoReporte {
 		this.ubicacionVencimiento = ubicacionVencimiento;
 	}
 
-	public Boolean getUbicacionBisMacizo() {
-		return ubicacionBisMacizo;
-	}
-
-	public void setUbicacionBisMacizo(Boolean ubicacionBisMacizo) {
-		this.ubicacionBisMacizo = ubicacionBisMacizo;
-	}
-
-	public Boolean getUbicacionBis() {
-		return ubicacionBis;
-	}
-
-	public void setUbicacionBis(Boolean ubicacionBis) {
-		this.ubicacionBis = ubicacionBis;
-	}
-	
 	
 }

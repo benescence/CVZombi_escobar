@@ -33,10 +33,9 @@ public class VentanaFallecidoAM extends Ventana {
 	private EntradaLista<TipoFallecimiento> inTipo;
 	
 	// DATOS DE UBICACION
-	private EntradaNumero inUnidad, inFila, inMacizo, inNicho, inSepultura, inParcela, inBoveda, inPozo, inMueble; 
+	private EntradaNumero inUnidad, inFila, inNicho, inSepultura, inPozo,inBoveda; 
 	private EntradaTexto inSeccion, inCementerio;
 	private EntradaFecha inVencimiento;
-	private JCheckBox inCheckMacizo, inCheckBis;
 	private EntradaLista<Sector> inSector;
 	
 	public VentanaFallecidoAM() {
@@ -114,22 +113,15 @@ public class VentanaFallecidoAM extends Ventana {
 
 		inPozo = new EntradaNumero("Pozo", dimTexto2, dimEntrada);
 		inSeccion = new EntradaTexto("Sección", dimTexto1, dimEntrada);
-		inMacizo = new EntradaNumero("Macizo", dimTexto1, dimEntrada);
-		inParcela = new EntradaNumero("Parcela", dimTexto2, dimEntrada);
 		inUnidad = new EntradaNumero("Unidad", dimTexto1, dimEntrada);
 		inNicho = new EntradaNumero("Nicho", dimTexto2, dimEntrada);
 		inFila = new EntradaNumero("Fila", dimTexto2, dimEntrada);
-		inMueble = new EntradaNumero("Mueble", dimTexto2, dimEntrada);
 		inSepultura = new EntradaNumero("Sepultura", dimTexto1, dimEntrada);
-		inBoveda = new EntradaNumero("Boveda", dimTexto1, dimEntrada);
 		inCementerio = new EntradaTexto("Cementerio", dimTexto1, dimEntrada);
 		inVencimiento = new EntradaFecha(Almanaque.hoy(), "Vencimiento", dimTexto1, dimEntradaVencimiento);
 
-		inCheckBis = new JCheckBox("Bis");
-		inCheckMacizo = new JCheckBox("Macizo");
+	
 		PanelHorizontal panelCheck = new PanelHorizontal();
-		panelCheck.add(inCheckBis);
-		panelCheck.add(inCheckMacizo);
 		
 		inSector = new EntradaLista<>("Sector", dimTexto1, dimEntrada);
 
@@ -147,17 +139,13 @@ public class VentanaFallecidoAM extends Ventana {
 		panelIzquierdo.add(inSector);
 		panelIzquierdo.add(inPozo);
 		panelIzquierdo.add(inSeccion);
-		panelIzquierdo.add(inMacizo);
-		panelIzquierdo.add(inParcela);
 		panelIzquierdo.add(inUnidad);
 		
 		PanelVertical panelDerecho = new PanelVertical();
 		panelDerecho.setBorder(new EmptyBorder(10, 30, 0, 0));
 		panelDerecho.add(inNicho);
 		panelDerecho.add(inFila);
-		panelDerecho.add(inMueble);
 		panelDerecho.add(inSepultura);
-		panelDerecho.add(inBoveda);
 		panelDerecho.add(panelCheck);
 		panelDerecho.add(inCementerio);
 		
@@ -200,19 +188,11 @@ public class VentanaFallecidoAM extends Ventana {
 	private void habilitarCamposUbicacion(boolean habilitado) {
 		inSeccion.habilitado(habilitado);
 		inCementerio.habilitado(habilitado);
-		inMacizo.habilitado(habilitado);
 		inUnidad.habilitado(habilitado);
 		inSepultura.habilitado(habilitado);
-		inBoveda.habilitado(habilitado);
 		inNicho.habilitado(habilitado);
 		inFila.habilitado(habilitado);
 		inPozo.habilitado(habilitado);
-		inParcela.habilitado(habilitado);
-		inMueble.habilitado(habilitado);
-		inCheckMacizo.setEnabled(habilitado);
-		inCheckBis.setEnabled(habilitado);
-		inParcela.habilitado(habilitado);
-		inBoveda.habilitado(habilitado);
 	}
 	
 	public JTextField getCod_Fallecido() {
@@ -251,9 +231,6 @@ public class VentanaFallecidoAM extends Ventana {
 		return inCementerio;
 	}
 
-	public EntradaNumero getMacizo() {
-		return inMacizo;
-	}
 
 	public EntradaNumero getUnidad() {
 		return inUnidad;
@@ -263,12 +240,11 @@ public class VentanaFallecidoAM extends Ventana {
 		return inSepultura;
 	}
 
-	public EntradaNumero getInBoveda() {
-		return inBoveda;
-	}
-
 	public EntradaNumero getNicho() {
 		return inNicho;
+	}
+	public EntradaNumero getBoveda() {
+		return inBoveda;
 	}
 
 	public EntradaNumero getFila() {
@@ -279,21 +255,6 @@ public class VentanaFallecidoAM extends Ventana {
 		return inPozo;
 	}
 
-	public EntradaNumero getParcela() {
-		return inParcela;
-	}
-
-	public EntradaNumero getMueble() {
-		return inMueble;
-	}
-
-	public JCheckBox getInCheckMacizo() {
-		return inCheckMacizo;
-	}
-
-	public JCheckBox getInCheckBis() {
-		return inCheckBis;
-	}
 
 	public JComboBox<Sector> getSector() {
 		return inSector.getComboBox();

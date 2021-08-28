@@ -18,7 +18,7 @@ import com.ungs.revivir.persistencia.interfaces.UbicacionOBD;
 
 public class UbicacionOBDMySQL extends OBD implements UbicacionOBD{
 	private final String campos = "subsector, cementerio, nicho, fila,"
-			+ "seccion, macizo, unidad, bis, bis_macizo, sepultura, parcela, mueble, pozo, boveda, vencimiento";
+			+ "seccion, sepultura, pozo, boveda, vencimiento";
 	private final String tabla = "rev_ubicaciones";
 	
 	@Override
@@ -32,13 +32,7 @@ public class UbicacionOBDMySQL extends OBD implements UbicacionOBD{
 				+", "+ubicacion.getNicho()
 				+", "+ubicacion.getFila()
 				+", "+seccion
-				+", "+ubicacion.getMacizo()
-				+", "+ubicacion.getUnidad()
-				+", "+ubicacion.getBis()
-				+", "+ubicacion.getBis_macizo()
 				+", "+ubicacion.getSepultura()
-				+", "+ubicacion.getParcela()
-				+", "+ubicacion.getMueble()
 				+", "+ubicacion.getPozo()
 				+", "+ubicacion.getBoveda()
 				+", "+vencimiento;
@@ -58,13 +52,7 @@ public class UbicacionOBDMySQL extends OBD implements UbicacionOBD{
 				+", nicho = "+ubicacion.getNicho()
 				+", fila = "+ubicacion.getFila()
 				+", seccion = "+seccion
-				+", macizo = "+ubicacion.getMacizo()
-				+", unidad = "+ubicacion.getUnidad()
-				+", bis = "+ubicacion.getBis()
-				+", bis_macizo = "+ubicacion.getBis_macizo()
 				+", sepultura = "+ubicacion.getSepultura()
-				+", parcela = "+ubicacion.getParcela()
-				+", mueble = "+ubicacion.getMueble()
 				+", pozo = "+ubicacion.getPozo()
 				+", boveda = "+ubicacion.getBoveda()
 				+", vencimiento = "+vencimiento;
@@ -95,12 +83,7 @@ public class UbicacionOBDMySQL extends OBD implements UbicacionOBD{
 				+" and nicho "+((ubicacion.getNicho() != null) ? (" = " +ubicacion.getNicho()) : " is null")
 				+" and fila "+((ubicacion.getFila() != null) ? (" = " +ubicacion.getFila()) : " is null")
 				+" and seccion" + ((ubicacion.getSeccion() != null) ? (" = "+ubicacion.getSeccion()) :  " is null")
-				+" and macizo" + ((ubicacion.getMacizo() != null) ? (" = "+ubicacion.getMacizo()) :  " is null")
-				+" and unidad" + ((ubicacion.getUnidad() != null) ? (" = "+ubicacion.getUnidad()) :  " is null")
-				+" and bis" + ((ubicacion.getBis() != null) ? (" = "+ubicacion.getBis()) :  " is null")
-				+" and bis_macizo" + ((ubicacion.getBis_macizo() != null) ? (" = "+ubicacion.getBis_macizo()) :  " is null")
 				+" and sepultura" + ((ubicacion.getSepultura() != null) ? (" = "+ubicacion.getSepultura()) :  " is null")
-				+" and parcela" + ((ubicacion.getParcela() != null) ? (" = "+ubicacion.getParcela()) :  " is null")
 				+" and pozo" + ((ubicacion.getPozo() != null) ? (" = "+ubicacion.getPozo()) :  " is null")
 				+" and boveda" + ((ubicacion.getBoveda() != null) ? (" = "+ubicacion.getBoveda()) :  " is null");
 				
@@ -113,22 +96,14 @@ public class UbicacionOBDMySQL extends OBD implements UbicacionOBD{
 	@Override
 	public List<Ubicacion> selectByrangos(Integer nichoMax,
 									Integer nichoMin,
-									Integer circMax,
-									Integer circMin,
+									Integer pozoMax,
+									Integer pozoMin,
 									Integer filaMax,
 									Integer filaMin,
-									Integer parcelaMax,
-									Integer parcelaMin,
-									Integer unidadMax,
-									Integer unidadMin,
-									Integer muebleMax,
-									Integer muebleMin,
 									Integer sepulturaMax,
 									Integer sepulturaMin,
-									Integer inhumacionMax,
-									Integer inhumacionMin,
-									Integer macizoMax,
-									Integer macizoMin,
+									Integer bovedaMax,
+									Integer bovedaMin,
 									String seccion,
 									SubSector subsector) {
 			
@@ -136,24 +111,16 @@ public class UbicacionOBDMySQL extends OBD implements UbicacionOBD{
 		String condicionSeccion = (seccion != null) ? (" and "+  "seccion = '" + seccion+"'") : "";
 		String condicionNicho = (nichoMin!= null && nichoMax != null) ? (" and nicho > "+nichoMin +" and nicho <" + nichoMax) : "";
 		String condicionFila = (filaMin!= null && filaMax != null) ? (" and fila > "+filaMin +" and fila <" + filaMax) : "";
-		String condicionCirc = (circMin!= null && circMax != null) ? (" and boveda > "+circMin +" and boveda < " + circMax) : "";
-		String condicionUnidad = (unidadMin!= null && unidadMax != null) ? (" and "+unidadMin +"< unidad <" + unidadMax) : "";
-		String condicionParcela = (parcelaMin!= null && parcelaMax != null) ? (" and "+parcelaMin +"< parcela <" + parcelaMax) : "";
-		String condicionMueble = (muebleMin!= null && muebleMax != null) ? (" and "+muebleMin +"< mueble <" + muebleMax) : "";
-		String condicionMacizo = (macizoMin!= null && macizoMax != null) ? (" and "+macizoMin +"< macizo <" + macizoMax) : "";
-		String condicioninhumacion = (inhumacionMin!= null && inhumacionMax != null) ? (" and pozo > "+inhumacionMin +" and pozo <" + inhumacionMax) : "";
+		String condicionPozo = (pozoMin!= null && pozoMax != null) ? (" and boveda > "+pozoMin +" and boveda < " + pozoMax) : "";
+		String condicionboveda = (bovedaMin!= null && bovedaMax != null) ? (" and pozo > "+bovedaMin +" and pozo <" + bovedaMax) : "";
 		String condicionSepultura = (sepulturaMin!= null && sepulturaMax != null) ? (" and nicho > "+sepulturaMin +" and nicho <" + sepulturaMax) : "";
 		
 		String condicion =  condicionSubsector 
 							+ condicionSeccion
 							+ condicionNicho
 							+ condicionFila
-							+ condicionCirc
-							+ condicionUnidad
-							+ condicionParcela
-							+ condicionMueble
-							+ condicionMacizo
-							+ condicioninhumacion
+							+ condicionPozo
+							+ condicionboveda
 							+ condicionSepultura ;
 		
 		return selectByCondicion(condicion, limite);		
@@ -200,33 +167,15 @@ public class UbicacionOBDMySQL extends OBD implements UbicacionOBD{
 				Integer nicho = resultados.getInt("nicho");
 				nicho = (resultados.wasNull())? null: nicho;
 
-				Integer macizo = resultados.getInt("macizo");
-				macizo = (resultados.wasNull())? null: macizo;
-				
-				Integer unidad = resultados.getInt("unidad");
-				unidad = (resultados.wasNull())? null: unidad;
-				
 				Integer sepultura = resultados.getInt("sepultura");
 				sepultura = (resultados.wasNull())? null: sepultura;
 				
-				Integer parcela = resultados.getInt("parcela");
-				parcela = (resultados.wasNull())? null: parcela;
-				
-				Integer mueble = resultados.getInt("mueble");
-				mueble = (resultados.wasNull())? null: mueble;
-				
-				Integer inhumacion = resultados.getInt("pozo");
-				inhumacion = (resultados.wasNull())? null: inhumacion;
+				Integer boveda = resultados.getInt("pozo");
+				boveda = (resultados.wasNull())? null: boveda;
 
-				Integer circ = resultados.getInt("boveda");
-				circ = (resultados.wasNull())? null: circ;
+				Integer pozo = resultados.getInt("boveda");
+				pozo = (resultados.wasNull())? null: pozo;
 
-				Boolean bis = resultados.getBoolean("bis");
-				bis = (resultados.wasNull())? null: bis;
-
-				Boolean bisMacizo = resultados.getBoolean("bis_macizo");
-				bisMacizo = (resultados.wasNull())? null: bisMacizo;
-				
 				ret.add(new Ubicacion(
 						resultados.getInt("ID"),
 						Definido.subsector(resultados.getInt("subsector")),
@@ -234,15 +183,9 @@ public class UbicacionOBDMySQL extends OBD implements UbicacionOBD{
 						nicho,
 						fila,
 						resultados.getString("seccion"),
-						macizo,
-						unidad,
-						bis,
-						bisMacizo,
 						sepultura,
-						parcela,
-						mueble,
-						inhumacion,
-						circ,
+						boveda,
+						pozo,
 						Date.valueOf(resultados.getObject("vencimiento", LocalDate.class))
 					));
 			}

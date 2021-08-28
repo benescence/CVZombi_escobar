@@ -16,8 +16,7 @@ public class VFallecidoUbicacion {
 	private TipoFallecimiento tipoFallecimiento;
 	
 	// Ubicacion vinculada a ese fallecido
-	private Integer nicho, fila, macizo, unidad, sepultura, parcela, mueble, boveda, pozo;
-	private Boolean bis, bisMacizo;
+	private Integer nicho, fila, sepultura, boveda, pozo;
 	private String  cementerio, seccion;
 	private SubSector subsector;
 	private Date vencimiento;
@@ -29,9 +28,8 @@ public class VFallecidoUbicacion {
 			String apellido, String nombre, String cocheria, Date fechaFallecimiento, Date fechaIngreso,
 			
 			// Parametros de la ubicacion
-			SubSector subsector, String cementerio, Integer nicho, Integer fila, String seccion, Integer macizo,
-			Integer unidad, Boolean bis, Boolean bisMacizo, Integer sepultura, Integer parcela, Integer mueble,
-			Integer boveda, Integer pozo, Date vencimiento) {
+			SubSector subsector, String cementerio, Integer nicho, Integer fila, String seccion,
+			Integer sepultura,Integer boveda, Integer pozo, Date vencimiento) {
 		
 		// Datos del fallecido
 		this.ID = ID;
@@ -51,13 +49,7 @@ public class VFallecidoUbicacion {
 		this.nicho = nicho;
 		this.fila = fila;
 		this.seccion = seccion;
-		this.macizo = macizo;
-		this.unidad = unidad;
-		this.bis = bis;
-		this.bisMacizo = bisMacizo;
 		this.sepultura = sepultura;
-		this.parcela = parcela;
-		this.mueble = mueble;
 		this.boveda = boveda;
 		this.pozo = pozo;
 		this.vencimiento = vencimiento;
@@ -159,21 +151,6 @@ public class VFallecidoUbicacion {
 		this.fila = fila;
 	}
 
-	public Integer getMacizo() {
-		return macizo;
-	}
-
-	public void setMacizo(Integer macizo) {
-		this.macizo = macizo;
-	}
-
-	public Integer getUnidad() {
-		return unidad;
-	}
-
-	public void setUnidad(Integer unidad) {
-		this.unidad = unidad;
-	}
 
 	public Integer getSepultura() {
 		return sepultura;
@@ -183,21 +160,6 @@ public class VFallecidoUbicacion {
 		this.sepultura = sepultura;
 	}
 
-	public Integer getParcela() {
-		return parcela;
-	}
-
-	public void setParcela(Integer parcela) {
-		this.parcela = parcela;
-	}
-
-	public Integer getMueble() {
-		return mueble;
-	}
-
-	public void setMueble(Integer mueble) {
-		this.mueble = mueble;
-	}
 
 	public Integer getBoveda() {
 		return boveda;
@@ -215,21 +177,6 @@ public class VFallecidoUbicacion {
 		this.pozo = pozo;
 	}
 
-	public Boolean getBis() {
-		return bis;
-	}
-
-	public void setBis(Boolean bis) {
-		this.bis = bis;
-	}
-
-	public Boolean getBisMacizo() {
-		return bisMacizo;
-	}
-
-	public void setBisMacizo(Boolean bisMacizo) {
-		this.bisMacizo = bisMacizo;
-	}
 
 	public String getCementerio() {
 		return cementerio;

@@ -17,8 +17,8 @@ import com.ungs.revivir.persistencia.interfaces.vista.FallecidoUbicacionVOBD;
 
 public class FallecidoUbicacionVOBDMySQL extends OBD implements FallecidoUbicacionVOBD{
 	private final String campos = " ubicacion, DNI, apellido, nombre, fecha_fallecimiento, tipo_fallecimiento, cod_fallecido, "
-			+ "cocheria, fecha_ingreso, subsector, cementerio, nicho, fila, seccion, macizo, unidad, bis, bis_macizo, "
-			+ "sepultura, parcela, mueble, boveda, pozo, vencimiento";
+			+ "cocheria, fecha_ingreso, subsector, cementerio, nicho, fila, seccion,"
+			+ "sepultura, boveda, pozo, vencimiento";
 	private final String tabla = "rev_v_fallecidos";
 		
 	@Override
@@ -92,20 +92,12 @@ public class FallecidoUbicacionVOBDMySQL extends OBD implements FallecidoUbicaci
 				Integer nicho = resultados.getInt("nicho");
 				nicho = (resultados.wasNull())? null: nicho;
 
-				Integer macizo = resultados.getInt("macizo");
-				macizo = (resultados.wasNull())? null: macizo;
-				
-				Integer unidad = resultados.getInt("unidad");
-				unidad = (resultados.wasNull())? null: unidad;
+
 				
 				Integer sepultura = resultados.getInt("sepultura");
 				sepultura = (resultados.wasNull())? null: sepultura;
 				
-				Integer parcela = resultados.getInt("parcela");
-				parcela = (resultados.wasNull())? null: parcela;
-				
-				Integer mueble = resultados.getInt("mueble");
-				mueble = (resultados.wasNull())? null: mueble;
+
 				
 				Integer boveda = resultados.getInt("boveda");
 				boveda = (resultados.wasNull())? null: boveda;
@@ -113,11 +105,6 @@ public class FallecidoUbicacionVOBDMySQL extends OBD implements FallecidoUbicaci
 				Integer pozo = resultados.getInt("pozo");
 				pozo = (resultados.wasNull())? null: pozo;
 
-				Boolean bis = resultados.getBoolean("bis");
-				bis = (resultados.wasNull())? null: bis;
-
-				Boolean bisMacizo = resultados.getBoolean("bis_macizo");
-				bisMacizo = (resultados.wasNull())? null: bisMacizo;
 				
 				LocalDate vencimientoLocal = (LocalDate) resultados.getObject("vencimiento", LocalDate.class);
 				Date vencimiento = vencimientoLocal == null ? null : Date.valueOf(vencimientoLocal);
@@ -138,13 +125,7 @@ public class FallecidoUbicacionVOBDMySQL extends OBD implements FallecidoUbicaci
 						nicho,
 						fila,
 						resultados.getString("seccion"),
-						macizo,
-						unidad,
-						bis,
-						bisMacizo,
 						sepultura,
-						parcela,
-						mueble,
 						boveda,
 						pozo,
 						vencimiento
@@ -178,20 +159,10 @@ public class FallecidoUbicacionVOBDMySQL extends OBD implements FallecidoUbicaci
 		String condicionFilaMin = (filaMin!= null ) ? (" and fila >= "+filaMin) : "";
 		String condicionCircMax = (pozoMax != null) ? (" and pozo <= " + pozoMax) : "";
 		String condicionCircMin = (pozoMin!= null) ? (" and pozo >= "+pozoMin ) : "";
-		String condicionUnidadMin = (unidadMin!= null ) ? (" and unidad >= "+unidadMin ) : "";
-		String condicionUnidadMax= ( unidadMax != null) ? ("  and unidad <= " + unidadMax) : "";		
-		String condicionParcelaMax = ( parcelaMax != null) ? ("  and  parcela <= " + parcelaMax) : "";
-		String condicionParcelaMin = (parcelaMin!= null ) ? (" and parcela >= "+parcelaMin ) : "";
-		String condicionMuebleMax = (  muebleMax != null) ? ("  and mueble <= " + muebleMax) : "";
-		String condicionMuebleMin = (muebleMin!= null ) ? (" and mueble >= "+muebleMin) : "";
-		String condicionMacizoMax = ( macizoMax != null) ? ("  and macizo <= " + macizoMax) : "";
-		String condicionMacizoMin = (macizoMin!= null ) ? (" and macizo >= "+macizoMin ) : "";	
 		String condicioninhumacionMax = (bovedaMax != null) ? ("  and boveda <= " + bovedaMax) : "";
 		String condicioninhumacionMin = (bovedaMin!= null) ? (" and boveda >= "+bovedaMin) : "";
 		String condicionSepulturaMax = (sepulturaMax != null) ? ("  and sepultura <= " + sepulturaMax) : "";
 		String condicionSepulturaMin = (sepulturaMin!= null) ? (" and sepultura >= "+sepulturaMin ) : "";
-		String condicionCheckMacizobis = (macizo_bis!= null && macizo_bis) ? (" and bis_macizo = "+macizo_bis ) : "";
-		String condicionCheckbis = (bis!= null && bis) ? (" and bis = "+bis ) : "";
 		String condicion =  condicionBase 
 							+ condicionSubsector
 							+ condicionSeccion
@@ -201,20 +172,10 @@ public class FallecidoUbicacionVOBDMySQL extends OBD implements FallecidoUbicaci
 							+ condicionFilaMax
 							+ condicionCircMax
 							+ condicionCircMin
-							+ condicionUnidadMax
-							+ condicionUnidadMin
-							+ condicionParcelaMin
-							+ condicionParcelaMax
-							+ condicionMuebleMax
-							+ condicionMuebleMin
-							+ condicionMacizoMax
-							+ condicionMacizoMin
 							+ condicioninhumacionMax
 							+ condicioninhumacionMin
 							+ condicionSepulturaMax 
-							+ condicionSepulturaMin
-							+ condicionCheckMacizobis
-							+ condicionCheckbis;
+							+ condicionSepulturaMin;
 		return selectByCondicion(condicion);
 	}
 

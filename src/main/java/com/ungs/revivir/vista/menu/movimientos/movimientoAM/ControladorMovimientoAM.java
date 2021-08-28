@@ -137,20 +137,7 @@ public class ControladorMovimientoAM implements FallecidoSeleccionable, Controla
 		String cementerio = ventana.getCementerio().getValor();
 		Integer nicho = ventana.getNicho().getValor();
 		Integer fila = ventana.getFila().getValor();
-		Integer macizo = ventana.getMacizo().getValor();
-		Integer unidad = ventana.getUnidad().getValor();
-		
-		Boolean bis = null;
-		if (ventana.getCheckBis().isEnabled()) 
-			bis = ventana.getCheckBis().isSelected();
-		
-		Boolean bis_macizo = null;
-		if (ventana.getCheckMacizo().isEnabled())
-			bis_macizo = ventana.getCheckMacizo().isSelected();
-
 		Integer sepultura = ventana.getSepultura().getValor();
-		Integer parcela = ventana.getParcela().getValor();
-		Integer mueble = ventana.getMueble().getValor();
 		Integer inhumacion = ventana.getInhumacion().getValor();
 		Integer circ = ventana.getCirc().getValor();
 		Date vencimiento = ventana.getVencimiento().getValor();
@@ -163,7 +150,7 @@ public class ControladorMovimientoAM implements FallecidoSeleccionable, Controla
 			throw new Exception("La seccion no puede estar vacía ");
 
 		Ubicacion ubicacion = new Ubicacion(-1, subsector, cementerio, nicho, fila, seccion,
-				macizo, unidad, bis, bis_macizo, sepultura, parcela, mueble, inhumacion, circ, vencimiento);
+				 sepultura, inhumacion, circ, vencimiento);
 		
 		return Verificador.ubicacion(ubicacion);
 	}	

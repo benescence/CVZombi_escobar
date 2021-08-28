@@ -43,9 +43,7 @@ public class ClienteNotificacionManager {
 		return new Ubicacion(
 				notifClientes.getUbicacion(), notifClientes.getSubsector(), notifClientes.getCementerio(),
 				notifClientes.getNicho(), notifClientes.getFila(),notifClientes.getSeccion(),
-				notifClientes.getMacizo(), notifClientes.getUnidad(), notifClientes.getBis() ,
-				notifClientes.getBisMacizo(), notifClientes.getSepultura(),
-				notifClientes.getParcela(), notifClientes.getMueble(), notifClientes.getBoveda(), 
+				 notifClientes.getSepultura(), notifClientes.getBoveda(), 
 				notifClientes.getPozo(), notifClientes.getVencimiento()
 			);
 	}
@@ -81,13 +79,7 @@ public class ClienteNotificacionManager {
 				ubicacion.getNicho(),
 				ubicacion.getFila(),
 				ubicacion.getSeccion(),
-				ubicacion.getMacizo(),
-				ubicacion.getUnidad(),
-				ubicacion.getBis(),
-				ubicacion.getBis_macizo(),
 				ubicacion.getSepultura(),
-				ubicacion.getParcela(),
-				ubicacion.getMueble(),
 				ubicacion.getBoveda(),
 				ubicacion.getPozo(),
 				ubicacion.getVencimiento()
