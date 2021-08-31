@@ -9,6 +9,8 @@
 -- VISTA UBICACIONES LIBRES
 -- Devuelve lo que hay en ubicaciones totales restando lo que hay en ubicaciones (ubicaciones Ocupadas)
 
+DROP VIEW rev_v_ubicaciones_libres;
+
 CREATE VIEW rev_v_ubicaciones_libres AS
 	SELECT 
 		UT.ID,
@@ -35,6 +37,8 @@ CREATE VIEW rev_v_ubicaciones_libres AS
 
 -- VISTA FALLECIDOS
 -- Devuelve a los fallecidos con los datos de su ubicacion
+
+DROP VIEW rev_v_fallecidos; 
 
 CREATE VIEW rev_v_fallecidos AS 
 	SELECT
@@ -67,6 +71,8 @@ CREATE VIEW rev_v_fallecidos AS
 -- Devuelve a los clientes con los datos de los fallecidos a su cargo
 -- Si un cliente tiene mas de un fallecido a su cargo devolvera a ese cliente una vez por cada uno
 -- Se anexan tambien los datos de la ubicacion del fallecido
+
+DROP VIEW rev_v_cliente_notificaciones; 
 
 CREATE VIEW rev_v_cliente_notificaciones AS 
 	SELECT
