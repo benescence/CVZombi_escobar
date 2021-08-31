@@ -1,8 +1,6 @@
 package com.ungs.revivir.vista.menu.vencimientos;
 
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JScrollPane;
@@ -65,28 +63,18 @@ public class VentanaVencimientos extends VentanaInterna {
 		Dimension dimEntrada = new Dimension(300, 25);
 
 		inSector = new EntradaLista<>("Sector", dimTexto, dimEntrada);
-		//inSubsector = new EntradaLista<>("Sub Sector", dimTexto, dimEntrada);
 
 		for (Sector sector : Localizador.traerSectores())
 			inSector.getComboBox().addItem(sector);
 		
-		// EL SUB SECTOR DEPENDE DEL SECTOR ESCOGIDO
-		/*inSector.getComboBox().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				recargarSubSectores();
-			}
-		});*/
 
 		inSector.getComboBox().setSelectedIndex(0);
-		//inSubsector.getComboBox().setSelectedIndex(0);
-
 		inDesde = new EntradaFecha(Almanaque.hoy(), "Desde", dimTexto, dimEntrada);
 		inHasta = new EntradaFecha(Almanaque.hoy(), "Hasta", dimTexto, dimEntrada);
 		
 		PanelVertical panelSector = new PanelVertical();
 		panelSector.setBorder(new EmptyBorder(0, 0, 0, 10));
 		panelSector.add(inSector);
-		//panelSector.add(inSubsector);
 		
 		PanelVertical panelFecha = new PanelVertical();
 		panelFecha.setBorder(new EmptyBorder(0, 10, 0, 0));
@@ -98,13 +86,6 @@ public class VentanaVencimientos extends VentanaInterna {
 		ret.add(panelSector);
 		ret.add(panelFecha);
 		return ret;
-	}
-	
-	private void recargarSubSectores() {
-		inSubsector.getComboBox().removeAllItems();
-		Sector sector = (Sector) inSector.getComboBox().getSelectedItem();
-		for (SubSector elemento : Localizador.traerSubSectores(sector))
-			inSubsector.getComboBox().addItem(elemento);
 	}
 	
 	public Boton botonImpLista() {

@@ -14,7 +14,7 @@ import com.ungs.revivir.persistencia.entidades.Ubicacion;
 import com.ungs.revivir.persistencia.interfaces.UbicacionOBD;
 
 public class UbicacionOBDTest {
-	/*
+	
 	private Ubicacion objeto = crearObjetoDePrueba();
 	private UbicacionOBD obd = FactoryOBD.crearUbicacionOBD();
 	
@@ -72,10 +72,9 @@ public class UbicacionOBDTest {
 	@Test
 	void testSelectByRangos() {
 		
-		//List <Ubicacion> list = obd.selectByrangos(null,null, null,null,null,8,0,null,null,null,null,null,null,"Azul",SubSector.ADULTOS);
+		List <Ubicacion> list = obd.selectByrangos(null,null, null,null,null,8,0,null,null,null,null,null);
 		System.out.println(list.size());
-		
-		//assertTrue(list.get(0).getSubsector().equals("PALMERAS ATAUD"));
+		assertTrue(list.get(0).getSubsector().equals(SubSector.PALMERAS_ATAUD));
 		
 	}	
 	
@@ -113,32 +112,12 @@ public class UbicacionOBDTest {
 		if(obj1.getSubsector() != null && obj2.getSubsector() != null)
 			Subsector = obj1.getSubsector().equals(obj2.getSubsector());
 		assertTrue(Subsector);
-			
-		boolean macizo = (obj1.getMacizo() == null) && (obj2.getMacizo() == null);
-		if(obj1.getMacizo() != null && obj2.getMacizo() != null)
-			macizo = obj1.getMacizo().equals(obj2.getMacizo());
-		assertTrue(macizo);
-			
-		boolean parcela = (obj1.getParcela() == null) && (obj2.getParcela() == null);
-		if(obj1.getParcela() != null && obj2.getParcela() != null)
-			parcela = obj1.getParcela().equals(obj2.getParcela());
-		assertTrue(parcela);
 		
 		boolean nicho = (obj1.getNicho() == null) && (obj2.getNicho() == null);
 		if(obj1.getNicho() != null && obj2.getNicho() != null)
 			nicho = obj1.getNicho().equals(obj2.getNicho());
 		assertTrue(nicho);
 		
-		boolean unidad = (obj1.getUnidad() == null) && (obj2.getUnidad() == null);
-		if(obj1.getUnidad() != null && obj2.getUnidad() != null)
-			unidad = obj1.getUnidad().equals(obj2.getUnidad());
-		assertTrue(unidad);
-			
-		boolean mueble = (obj1.getMueble() == null) && (obj2.getMueble() == null);
-		if(obj1.getMueble() != null && obj2.getMueble() != null)
-			mueble = obj1.getMueble().equals(obj2.getMueble());
-		assertTrue(mueble);
-			
 		boolean inhumacion = (obj1.getPozo() == null) && (obj2.getPozo() == null);
 		if(obj1.getPozo()!= null && obj2.getPozo() != null)
 			inhumacion = obj1.getPozo().equals(obj2.getPozo());
@@ -153,17 +132,7 @@ public class UbicacionOBDTest {
 		if(obj1.getBoveda()!= null && obj2.getBoveda() != null)
 			circ = obj1.getBoveda().equals(obj2.getBoveda());
 		assertTrue(circ);
-			
-		boolean bisMacizo = (obj1.getBis_macizo() == null) && (obj2.getBis_macizo() == null);
-		if(obj1.getBis_macizo()!= null && obj2.getBis_macizo() != null)
-			bisMacizo = obj1.getBis_macizo().equals(obj2.getBis_macizo());
-		assertTrue(bisMacizo);
-			
-		boolean bis = (obj1.getBis() == null) && (obj2.getBis() == null);
-		if(obj1.getBis()!= null && obj2.getBis() != null)
-			bis = obj1.getBis().equals(obj2.getBis());
-		assertTrue(bis);
-			
+						
 		boolean sepultura = (obj1.getSepultura() == null) && (obj2.getSepultura() == null);
 		if(obj1.getSepultura()!= null && obj2.getSepultura() != null)
 			sepultura = obj1.getSepultura().equals(obj2.getSepultura());
@@ -184,25 +153,9 @@ public class UbicacionOBDTest {
 		if(obj1.getSubsector() != null && obj2.getSubsector() != null)
 			Subsector = obj1.getSubsector().equals(obj2.getSubsector());
 		
-		boolean macizo = (obj1.getMacizo() == null) && (obj2.getMacizo() == null);
-		if(obj1.getMacizo() != null && obj2.getMacizo() != null)
-			macizo = obj1.getMacizo().equals(obj2.getMacizo());
-		
-		boolean parcela = (obj1.getParcela() == null) && (obj2.getParcela() == null);
-		if(obj1.getParcela() != null && obj2.getParcela() != null)
-			parcela = obj1.getParcela().equals(obj2.getParcela());
-		
 		boolean nicho = (obj1.getNicho() == null) && (obj2.getNicho() == null);
 		if(obj1.getNicho() != null && obj2.getNicho() != null)
 			nicho = obj1.getNicho().equals(obj2.getNicho());
-		
-		boolean unidad = (obj1.getUnidad() == null) && (obj2.getUnidad() == null);
-		if(obj1.getUnidad() != null && obj2.getUnidad() != null)
-			unidad = obj1.getUnidad().equals(obj2.getUnidad());
-		
-		boolean mueble = (obj1.getMueble() == null) && (obj2.getMueble() == null);
-		if(obj1.getMueble() != null && obj2.getMueble() != null)
-			mueble = obj1.getMueble().equals(obj2.getMueble());
 		
 		boolean inhumacion = (obj1.getPozo() == null) && (obj2.getPozo() == null);
 		if(obj1.getPozo()!= null && obj2.getPozo() != null)
@@ -216,19 +169,11 @@ public class UbicacionOBDTest {
 		if(obj1.getBoveda()!= null && obj2.getBoveda() != null)
 			circ = obj1.getBoveda().equals(obj2.getBoveda());
 		
-		boolean bisMacizo = (obj1.getBis_macizo() == null) && (obj2.getBis_macizo() == null);
-		if(obj1.getBis_macizo()!= null && obj2.getBis_macizo() != null)
-			bisMacizo = obj1.getBis_macizo().equals(obj2.getBis_macizo());
-		
-		boolean bis = (obj1.getBis() == null) && (obj2.getBis() == null);
-		if(obj1.getBis()!= null && obj2.getBis() != null)
-			bis = obj1.getBis().equals(obj2.getBis());
-		
 		boolean sepultura = (obj1.getSepultura() == null) && (obj2.getSepultura() == null);
 		if(obj1.getSepultura()!= null && obj2.getSepultura() != null)
 			sepultura = obj1.getSepultura().equals(obj2.getSepultura());
 
-		assertFalse(Subsector && otroCementerio && seccion && macizo && parcela && nicho && unidad && mueble && inhumacion && fila && circ && bisMacizo && bis && sepultura);
+		assertFalse(Subsector && otroCementerio && seccion && nicho && inhumacion && fila && circ && sepultura);
 	}
-*/
+
 }

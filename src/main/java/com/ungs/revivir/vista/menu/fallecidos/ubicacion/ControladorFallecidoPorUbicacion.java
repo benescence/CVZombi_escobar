@@ -4,12 +4,10 @@ import java.util.List;
 
 import javax.swing.JInternalFrame;
 
-import com.ungs.revivir.negocios.Busqueda;
 import com.ungs.revivir.negocios.Localizador;
 import com.ungs.revivir.negocios.manager.FallecidoUbicacionManager;
 import com.ungs.revivir.persistencia.definidos.Sector;
 import com.ungs.revivir.persistencia.definidos.SubSector;
-import com.ungs.revivir.persistencia.entidades.Ubicacion;
 import com.ungs.revivir.persistencia.entidades.vista.VFallecidoUbicacion;
 import com.ungs.revivir.vista.principal.ControladorInterno;
 import com.ungs.revivir.vista.principal.ControladorPrincipal;
@@ -61,23 +59,11 @@ public class ControladorFallecidoPorUbicacion implements ControladorInterno {
 		Integer pozoMin = ventana.getPozo().getValorMin();
 		Integer pozoMax = ventana.getPozo().getValorMax();
 		
-		//Integer macizoMin = ventana.getMacizo().getValorMin();
-		//Integer macizoMax = ventana.getMacizo().getValorMax();
-		
-		//Integer parcelaMin = ventana.getParcela().getValorMin();
-		//Integer parcelaMax = ventana.getParcela().getValorMax();
-
 		Integer filaMin = ventana.getFila().getValorMin();
 		Integer filaMax = ventana.getFila().getValorMax();
 
-		//Integer unidadMin = ventana.getUnidad().getValorMin();
-		//Integer unidadMax = ventana.getUnidad().getValorMax();
-
 		Integer nichoMin = ventana.getNicho().getValorMin();
 		Integer nichoMax = ventana.getNicho().getValorMax();
-
-		//Integer muebleMin = ventana.getMueble().getValorMin();
-		//Integer muebleMax = ventana.getMueble().getValorMax();
 
 		Integer sepulturaMin= ventana.getSepultura().getValorMin();
 		Integer sepulturaMax = ventana.getSepultura().getValorMax();
@@ -85,14 +71,10 @@ public class ControladorFallecidoPorUbicacion implements ControladorInterno {
 		Integer bovedaMin = ventana.getBoveda().getValorMin();
 		Integer bovedaMax= ventana.getBoveda().getValorMax();
 		
-		//SubSector subSector = (SubSector) ventana.getSubsector().getComboBox().getSelectedItem();
 		Sector sector = (Sector) ventana.getSector().getComboBox().getSelectedItem();
 		SubSector subSector = Localizador.mapearSector2(sector);
 		String seccion = ventana.getSeccion().getValor();
 		seccion = (seccion.equals("") ) ? null : seccion;
-		//boolean mostrar= ventana.getInCheckMostrarTodo().isSelected();
-		//boolean macizo_bis= ventana.getInCheck_macizoBis().isSelected();
-		//boolean bis= ventana.getInCheckBis().isSelected();
 		
 		List<VFallecidoUbicacion> FallecidosUbicacion =  FallecidoUbicacionManager.traer(pozoMin, pozoMax, null, null, null,
 				null, filaMin, filaMax, null, null, nichoMin, nichoMax, null,

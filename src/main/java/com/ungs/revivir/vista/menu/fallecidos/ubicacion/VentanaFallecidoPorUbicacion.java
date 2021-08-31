@@ -1,13 +1,12 @@
 package com.ungs.revivir.vista.menu.fallecidos.ubicacion;
 
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JCheckBox;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+
 import com.ungs.revivir.negocios.Localizador;
 import com.ungs.revivir.persistencia.definidos.Sector;
 import com.ungs.revivir.persistencia.definidos.SubSector;
@@ -54,8 +53,6 @@ public class VentanaFallecidoPorUbicacion extends VentanaInterna{
 		panelPrincipal.add(panelBusqueda());
 		panelPrincipal.add(panelBotones);
 		panelPrincipal.add(panelTabla);
-		
-		
 	}
 	
 	private PanelVertical panelBusqueda() {
@@ -65,63 +62,38 @@ public class VentanaFallecidoPorUbicacion extends VentanaInterna{
 		
 		// Inicializo las listas de sectores
 		inSector = new EntradaLista<>("Sector", dimTexto, dimEntrada);
-		//inSubsector = new EntradaLista<>("Sub Sector", dimTexto, dimEntrada);
 		
 		for (Sector sector : Localizador.traerSectores())
 			inSector.getComboBox().addItem(sector);
 		
-		/*inSector.getComboBox().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				inSubsector.getComboBox().removeAllItems();
-				Sector sector = (Sector) inSector.getComboBox().getSelectedItem();
-				for (SubSector elemento : Localizador.traerSubSectores(sector))
-					inSubsector.getComboBox().addItem(elemento);
-			}
-		});*/
-
 		inSector.getComboBox().setSelectedIndex(0);
-		//inSubsector.getComboBox().setSelectedIndex(0);
 
 		// Inicializo el esto de las entradas
 		inPozo = new EntradaNumeroEntre("Pozo", dimTexto, dimEntradaDoble);
 		inMacizo = new EntradaNumeroEntre("Macizo", dimTexto, dimEntradaDoble);
-		//inParcela = new EntradaNumeroEntre("Parcela", dimTexto, dimEntradaDoble);
 		inFila = new EntradaNumeroEntre("Fila", dimTexto, dimEntradaDoble);
-		//inUnidad = new EntradaNumeroEntre("Unidad", dimTexto, dimEntradaDoble);
 		inNicho = new EntradaNumeroEntre("Nicho", dimTexto, dimEntradaDoble);
-		//inMueble = new EntradaNumeroEntre("Mueble", dimTexto, dimEntradaDoble);
 		inSepultura = new EntradaNumeroEntre("Sepultura", dimTexto, dimEntradaDoble);
 		inBoveda= new EntradaNumeroEntre("Boveda", dimTexto, dimEntradaDoble);
 		inSeccion = new EntradaTexto("Seccion", dimTexto, dimEntrada);
-		//inCheckMostrarTodo = new JCheckBox("MostrarTodo");
-		//inCheckMacizo_bis = new JCheckBox("Macizo bis");
-		//inCheckbis = new JCheckBox("bis");
 		
 		PanelVertical ret1 = new PanelVertical();
 		ret1.setBorder(new EmptyBorder(0, 0, 0, 10));
 		ret1.add(inSector);
-		//ret1.add(inSubsector);
 		ret1.add(inPozo);
 		ret1.add(inMacizo);
-		//ret1.add(inParcela);
 		ret1.add(inFila);
 		
 		PanelVertical ret2 = new PanelVertical();
 		ret2.setBorder(new EmptyBorder(0, 10, 0, 0));
 		ret2.add(inSeccion);
-		//ret2.add(inUnidad);
 		ret2.add(inNicho);
-		//ret2.add(inMueble);
 		ret2.add(inSepultura);
 		ret2.add(inBoveda);
-		//ret2.add(inCheckMostrarTodo);
-		//ret2.add(inCheckMacizo_bis);
-		//ret2.add(inCheckbis);
 		
 		PanelHorizontal ret3 = new PanelHorizontal();
 		ret3.add(ret1);
 		ret3.add(ret2);
-		
 		
 		PanelVertical ret = new PanelVertical();
 		ret.add(ret3);

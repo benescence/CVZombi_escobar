@@ -2,7 +2,6 @@ package com.ungs.revivir.vista.menu.fallecidos.fallecidoAM;
 
 import java.awt.Dimension;
 
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
@@ -254,7 +253,6 @@ public class VentanaFallecidoAM extends Ventana {
 	public EntradaNumero getPozo() {
 		return inPozo;
 	}
-
 
 	public JComboBox<Sector> getSector() {
 		return inSector.getComboBox();
