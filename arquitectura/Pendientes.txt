@@ -3,3 +3,5 @@
 - El sectro sepultura es el 16
 - Pasar "Pasar fallecido por ubicacion" a san miguel.
 - Hacer manual
+- CORREGIR POPUP AL BORRAR UN RESPONSABLE (SALE CUANDO YA SE BORRO EL FALLECIDO/CLIENTE)
+- MAYUSCULAS EN LAS UBICACIONES
