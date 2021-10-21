@@ -16,7 +16,12 @@
     <maven.compiler.source>1.8</maven.compiler.source>
   </properties>
 
-
+<configuration>
+...
+  <processTypes>
+     <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+  </processTypes>
+</configuration>
 
 
   <dependencies>
@@ -101,4 +106,13 @@
 	</dependency>
 
 </dependencies> 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.heroku.sdk</groupId>
+        <artifactId>heroku-maven-plugin</artifactId>
+        <version>2.0.8</version>
+      </plugin>
+    </plugins>
+  </build>
 </project>
