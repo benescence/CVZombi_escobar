@@ -26,7 +26,6 @@ CREATE VIEW rev_v_ubicaciones_libres AS
 			AND IFNULL(UT.subsector, -1) = IFNULL(U.subsector, -1)
 			AND IFNULL(UT.pozo, -1) = IFNULL(U.pozo, -1)
 			AND IFNULL(UT.seccion, -1) = IFNULL(U.seccion, -1)
-			AND IFNULL(UT.macizo, -1) = IFNULL(U.macizo, -1)
 			AND IFNULL(UT.nicho, -1) = IFNULL(U.nicho, -1)
 			AND IFNULL(UT.sepultura, -1) = IFNULL(U.sepultura, -1)
 			AND IFNULL(UT.boveda, -1) = IFNULL(U.boveda, -1)
